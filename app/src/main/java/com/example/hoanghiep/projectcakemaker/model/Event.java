@@ -29,6 +29,14 @@ public class Event extends ParseObject {
         return getRelation("Products");
     }
 
+    public void setProductList(List<Product> list) {
+        productList = list;
+    }
+
+    public List<Product> getProductList() {
+        return productList;
+    }
+
     public void addProductRelation(Product p)
     {
         getProductRelation().add(p);

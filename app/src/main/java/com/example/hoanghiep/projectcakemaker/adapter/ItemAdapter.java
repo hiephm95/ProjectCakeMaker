@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.example.hoanghiep.projectcakemaker.R;
 import com.example.hoanghiep.projectcakemaker.activity.CakeActivityOne;
 import com.example.hoanghiep.projectcakemaker.activity.DetailActivity;
+import com.example.hoanghiep.projectcakemaker.model.Event;
 import com.example.hoanghiep.projectcakemaker.model.Product;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -24,20 +25,20 @@ import java.util.List;
 
 
 public class ItemAdapter extends BaseAdapter {
-    List<Product> products;
+    List<Event> events;
 
-    public ItemAdapter(List<Product> products) {
-        this.products = products;
+    public ItemAdapter(List<Event> events) {
+        this.events = events;
     }
 
     @Override
     public int getCount() {
-        return products.size();
+        return events.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return products.get(position);
+        return events.get(position);
     }
 
     @Override
@@ -53,7 +54,7 @@ public class ItemAdapter extends BaseAdapter {
             ViewGroup layoutHorizontall = (ViewGroup) convertView.findViewById(R.id.layout_hori);
             vhCategory = new ViewHolderCategory(convertView);
 
-            for (final Product p : products) {
+            for (final Product p : events.get(position).productList) {
                 final View view = View.inflate(parent.getContext(), R.layout.horizontal_item, null);
                 ViewHolderProduct vhProduct = new ViewHolderProduct(view);
                 vhProduct.tvName.setText(p.getName());
@@ -84,7 +85,7 @@ public class ItemAdapter extends BaseAdapter {
         } else {
             vhCategory = (ViewHolderCategory) convertView.getTag();
         }
-        vhCategory.tvBrand.setText("null");
+        vhCategory.tvBrand.setText(events.get(position).getName());
         vhCategory.tvMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

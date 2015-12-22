@@ -28,18 +28,14 @@ import com.example.hoanghiep.projectcakemaker.model.Event;
 import com.example.hoanghiep.projectcakemaker.model.Picture;
 import com.example.hoanghiep.projectcakemaker.model.Product;
 import com.example.hoanghiep.projectcakemaker.model.Screen;
-<<<<<<< Updated upstream
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.parse.Parse;
 import com.parse.ParseObject;
-=======
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
 import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
 import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
->>>>>>> Stashed changes
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, ScreenChangeListener {
@@ -79,13 +75,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         setActions();
 
-<<<<<<< Updated upstream
 
         //setUpViewPager();
-=======
+
         buildFAB();
 
->>>>>>> Stashed changes
+
     }
 
     public void initProject() {
@@ -94,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         transaction.commit();
     }
 
-<<<<<<< Updated upstream
+
     private void initImageLoader()
     {
         DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
@@ -116,8 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
-=======
->>>>>>> Stashed changes
+
 
     private void initViews() {
         tvTitle = (TextView) findViewById(R.id.tvTitle);
