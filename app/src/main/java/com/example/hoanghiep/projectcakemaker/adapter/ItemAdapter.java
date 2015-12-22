@@ -2,10 +2,11 @@ package com.example.hoanghiep.projectcakemaker.adapter;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.v4.app.ActivityOptionsCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,31 +17,27 @@ import android.widget.TextView;
 import com.example.hoanghiep.projectcakemaker.R;
 import com.example.hoanghiep.projectcakemaker.activity.CakeActivityOne;
 import com.example.hoanghiep.projectcakemaker.activity.DetailActivity;
-import com.example.hoanghiep.projectcakemaker.model.Category;
 import com.example.hoanghiep.projectcakemaker.model.Product;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
-import java.util.ArrayList;
+import java.util.List;
 
-/**
- * Created by HoangHiep on 12/20/15.
- */
-public class ItemAdapter extends BaseAdapter{
-    ArrayList<Product> products;
-    ArrayList<Category> categories;
 
-    public ItemAdapter(ArrayList<Product> products, ArrayList<Category> categories) {
+public class ItemAdapter extends BaseAdapter {
+    List<Product> products;
+
+    public ItemAdapter(List<Product> products) {
         this.products = products;
-        this.categories = categories;
     }
 
     @Override
     public int getCount() {
-        return categories.size();
+        return products.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return categories.get(position);
+        return products.get(position);
     }
 
     @Override
@@ -56,32 +53,38 @@ public class ItemAdapter extends BaseAdapter{
             ViewGroup layoutHorizontall = (ViewGroup) convertView.findViewById(R.id.layout_hori);
             vhCategory = new ViewHolderCategory(convertView);
 
-            for (Product p: products) {
-                if (categories.get(position).id == p.categoryId) {
-                    final View view = View.inflate(parent.getContext(), R.layout.horizontal_item, null);
-                    ViewHolderProduct vhProduct = new ViewHolderProduct(view);
-                    vhProduct.tvName.setText(p.name);
-                    vhProduct.tvPrice.setText(String.valueOf(p.price));
-                    vhProduct.imgItem.setOnClickListener(new View.OnClickListener() {
-                        @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-                        @Override
-                        public void onClick(View v) {
-                            view.setTransitionName("transitionImage");
-                            ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) parent.getContext(), view, view.getTransitionName());
-                            Intent i = new Intent(parent.getContext(), DetailActivity.class);
-                            parent.getContext().startActivity(i, optionsCompat.toBundle());
-                        }
-                    });
+            for (final Product p : products) {
+                final View view = View.inflate(parent.getContext(), R.layout.horizontal_item, null);
+                ViewHolderProduct vhProduct = new ViewHolderProduct(view);
+                vhProduct.tvName.setText(p.getName());
+                vhProduct.tvPrice.setText(String.valueOf(p.getPrice()));
+                ImageLoader.getInstance().displayImage(p.getPicturesList().get(0).getFile().getUrl(), vhProduct.ivHorizontalProduct);
 
-                    layoutHorizontall.addView(view);
-                }
+                vhProduct.ivHorizontalProduct.setOnClickListener(new View.OnClickListener() {
+                    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+                    @Override
+                    public void onClick(View v) {
+                        view.setTransitionName("transitionImage");
+                        ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) parent.getContext(), view, view.getTransitionName());
+                        Intent i = new Intent(parent.getContext(), DetailActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("p_Avatar", p.getPicturesList().get(0).getFile().getUrl());
+                        bundle.putString("p_Name", p.getName());
+                        bundle.putDouble("p_Price", p.getPrice());
+                        bundle.putString("p_Description", p.getDescription());
+                        i.putExtras(bundle);
+
+                        parent.getContext().startActivity(i, optionsCompat.toBundle());
+                    }
+                });
+
+                layoutHorizontall.addView(view);
             }
             convertView.setTag(vhCategory);
         } else {
             vhCategory = (ViewHolderCategory) convertView.getTag();
         }
-        Category c = categories.get(position);
-        vhCategory.tvBrand.setText(c.brand);
+        vhCategory.tvBrand.setText("null");
         vhCategory.tvMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,7 +94,6 @@ public class ItemAdapter extends BaseAdapter{
         });
         return convertView;
     }
-
 
 
     class ViewHolderCategory {
@@ -107,12 +109,12 @@ public class ItemAdapter extends BaseAdapter{
     class ViewHolderProduct {
         TextView tvName;
         TextView tvPrice;
-        ImageView imgItem;
+        ImageView ivHorizontalProduct;
+
         public ViewHolderProduct(View viewProduct) {
             tvName = (TextView) viewProduct.findViewById(R.id.tvName);
             tvPrice = (TextView) viewProduct.findViewById(R.id.tvPrice);
-            imgItem = (ImageView) viewProduct.findViewById(R.id.imageItem);
-
+            ivHorizontalProduct = (ImageView) viewProduct.findViewById(R.id.ivHorizontalProduct);
         }
     }
 }

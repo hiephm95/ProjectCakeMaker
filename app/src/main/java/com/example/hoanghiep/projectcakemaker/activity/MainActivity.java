@@ -27,7 +27,15 @@ import com.example.hoanghiep.projectcakemaker.fragment.AboutUsFragment;
 import com.example.hoanghiep.projectcakemaker.fragment.CategoryFragment;
 import com.example.hoanghiep.projectcakemaker.fragment.HomeFragment;
 import com.example.hoanghiep.projectcakemaker.interfaces.ScreenChangeListener;
+import com.example.hoanghiep.projectcakemaker.model.Event;
+import com.example.hoanghiep.projectcakemaker.model.Picture;
+import com.example.hoanghiep.projectcakemaker.model.Product;
 import com.example.hoanghiep.projectcakemaker.model.Screen;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.parse.Parse;
+import com.parse.ParseObject;
 
 import java.util.ArrayList;
 
@@ -51,13 +59,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        initParse();
+
         initProject();
 
         initViews();
 
+        initImageLoader();
+
         setUpMenu();
 
         setActions();
+
 
         //setUpViewPager();
     }
@@ -66,6 +79,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.main_frame, new HomeFragment());
         transaction.commit();
+    }
+
+    private void initImageLoader()
+    {
+        DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
+                .cacheInMemory(true).cacheOnDisk(true).build();
+
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(this).defaultDisplayImageOptions(defaultOptions).build();
+        ImageLoader.getInstance().init(config);
+    }
+
+    private void initParse() {
+        Parse.enableLocalDatastore(this);
+        ParseObject.registerSubclass(Product.class);
+        ParseObject.registerSubclass(Event.class);
+        ParseObject.registerSubclass(Picture.class);
+        Parse.initialize(this, "l5OJy4F4rw3COKG6Jgc0VKNi7rFQzarUVLcjw4jA", "HCRpx0LQxTlvaBXDQ6BxeFsLnJqkGscA9xf1aq8Q");
     }
 
     public void setUpViewPager() {

@@ -25,37 +25,35 @@
                 android:textSize="18dp" />
 
             <TextView
-                android:id="@+id/tvNameCake"
+                android:id="@+id/tvDetailName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="120dp"
-                android:text="Wedding Cake"
                 android:textSize="18dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tvNameCake"
+                android:layout_below="@+id/tvDetailName"
                 android:layout_marginTop="5dp"
                 android:text="Price: "
                 android:textColor="@color/black"
                 android:textSize="18dp" />
 
             <TextView
-                android:id="@+id/tvPrice"
+                android:id="@+id/tvDetailPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tvNameCake"
+                android:layout_below="@+id/tvDetailName"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="120dp"
-                android:text="$10.00"
                 android:textSize="18dp" />
 
             <TextView
                 android:id="@+id/tvEggLess"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tvPrice"
+                android:layout_below="@+id/tvDetailPrice"
                 android:layout_marginTop="5dp"
                 android:text="Egg less:"
                 android:textColor="@color/black"
@@ -65,7 +63,7 @@
                 android:id="@+id/cbEggLess"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/tvPrice"
+                android:layout_below="@+id/tvDetailPrice"
                 android:button="@color/pink"
                 android:layout_marginLeft="115dp"
                 android:layout_marginTop="1dp"
@@ -118,12 +116,11 @@
                 android:textSize="20dp" />
 
             <TextView
-                android:id="@+id/tvDescriptionAbout"
+                android:id="@+id/tvDetailDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvDescription"
                 android:layout_marginTop="8dp"
-                android:text="Baking utensils and directions have been so perfected and simplified that even the amateur cook may easily become and expert baker. There are five basic types of cake, depending on the substance used for leavening."
                 android:textSize="18dp" />
 
         </RelativeLayout>

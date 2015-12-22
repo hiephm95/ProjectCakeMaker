@@ -1,60 +1,104 @@
 package com.example.hoanghiep.projectcakemaker.model;
 
-/**
- * Created by HoangHiep on 12/18/15.
- */
-public class Product {
 
+import com.parse.FindCallback;
+import com.parse.ParseClassName;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.ParseRelation;
 
-    public String name;
-    public String eggs;
-    public float price;
-    public int categoryId;
+import java.util.ArrayList;
+import java.util.List;
+
+@ParseClassName("Product")
+public class Product extends ParseObject{
+    private List<Picture> picturesList;
 
     public Product() {
+        picturesList = new ArrayList<>();
     }
 
-    public Product(String name, String eggs, float price, int categoryId) {
-        this.name = name;
-        this.eggs = eggs;
-        this.price = price;
-        this.categoryId = categoryId;
+    //Id
+    public String getId() {
+        return getObjectId();
     }
 
-    public Product(int categoryId, String name, float price) {
-        this.name = name;
-        this.price = price;
-        this.categoryId = categoryId;
+    //description
+    public String getDescription() {
+        return getString("description");
     }
 
-    public Product(String name, String eggs, float price) {
-        this.name = name;
-        this.eggs = eggs;
-        this.price = price;
+    public void setDescription(String value) {
+        put("description", value);
     }
 
-    public String getEggs() {
-        return eggs;
-    }
-
-    public void setEggs(String eggs) {
-        this.eggs = eggs;
-    }
-
-    public float getPrice() {
-
-        return price;
-    }
-
-    public void setPrice(float price) {
-        this.price = price;
-    }
-
+    //name
     public String getName() {
-        return name;
+        return getString("name");
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String value) {
+        put("name", value);
     }
+
+    //itemCode
+    public String getItemCode() {
+        return getString("itemCode");
+    }
+
+    public void setItemCode(String value) {
+        put("itemCode", value);
+    }
+
+    //price
+    public double getPrice() {
+        return getDouble("price");
+    }
+
+    public void setPrice(double value) {
+        put("price", value);
+    }
+
+    //egg
+    public boolean getEgg() {
+        return getBoolean("egg");
+    }
+
+    public void setEgg(Boolean value) {
+        put("egg", value);
+    }
+
+    //discount
+    public Double getDiscount() {
+        return getDouble("discount");
+    }
+
+    public void setDiscount(double value) {
+        put("discount", value);
+    }
+
+    //Picture
+    public ParseRelation<Picture> getPictureRelation() {
+        return getRelation("pictures");
+    }
+
+    public void setPictureRelation(Picture p) {
+        getPictureRelation().add(p);
+    }
+
+    public void setPictureList(List<Picture> list) {
+        picturesList = list;
+    }
+
+    public List<Picture> getPicturesList() {
+        return picturesList;
+    }
+
+
+    //Get list all product
+    public static void getListProduct(FindCallback<Product> callback) {
+        ParseQuery<Product> query = ParseQuery.getQuery(Product.class);
+        query.findInBackground(callback);
+    }
+
 }

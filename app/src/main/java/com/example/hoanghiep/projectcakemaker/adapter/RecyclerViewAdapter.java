@@ -10,15 +10,16 @@ import com.example.hoanghiep.projectcakemaker.R;
 import com.example.hoanghiep.projectcakemaker.model.Product;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by HoangHiep on 12/15/15.
  */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
-    private ArrayList<Product> products;
+    private List<Product> products;
     private static MyClickListener myClickListener;
 
-    public RecyclerViewAdapter(ArrayList<Product> myData) {
+    public RecyclerViewAdapter(List<Product> myData) {
         this.products = myData;
     }
 
