@@ -11,7 +11,8 @@
         android:layout_height="52dp"
         app:accentColor="@color/pink"
         app:primaryColor="@color/grey_light"
-        app:textColor="@color/pink"
+        app:iconColor="@color/pink"
+        app:hasIcons="true"
         />
 
     <android.support.v4.view.ViewPager

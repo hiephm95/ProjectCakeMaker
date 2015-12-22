@@ -1,8 +1,10 @@
 package com.example.hoanghiep.projectcakemaker.fragment;
 
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.Fragment;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -11,6 +13,7 @@ import android.view.ViewGroup;
 
 import com.ToxicBakery.viewpager.transforms.CubeOutTransformer;
 import com.example.hoanghiep.projectcakemaker.R;
+import com.example.hoanghiep.projectcakemaker.activity.MainActivity;
 import com.example.hoanghiep.projectcakemaker.adapter.SelectPagerAdapter;
 import com.example.hoanghiep.projectcakemaker.interfaces.ScreenChangeListener;
 import com.example.hoanghiep.projectcakemaker.tranformer.ViewPagerTranformer;
@@ -33,6 +36,7 @@ public class CategoryFragment extends Fragment implements MaterialTabListener{
     ScreenChangeListener screenChangeListener;
     MaterialTabHost tabLayout;
     ViewPager viewPager;
+    @TargetApi(Build.VERSION_CODES.M)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -42,6 +46,7 @@ public class CategoryFragment extends Fragment implements MaterialTabListener{
             viewPager = (ViewPager) root.findViewById(R.id.viewPager);
             viewPager.setPageTransformer(true, new ViewPagerTranformer(ViewPagerTranformer.TransformType.DEPTH));
             SelectPagerAdapter adapter = new SelectPagerAdapter(getFragmentManager());
+            adapter.context=CategoryFragment.this.getActivity();
             viewPager.setAdapter(adapter);
             viewPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener(){
 
@@ -53,7 +58,7 @@ public class CategoryFragment extends Fragment implements MaterialTabListener{
             for (int i = 0; i < adapter.getCount(); i++) {
                 tabLayout.addTab(
                         tabLayout.newTab()
-                                .setText(adapter.getPageTitle(i))
+                                .setIcon(adapter.getIcon(i))
                                 .setTabListener(this)
 
                 );

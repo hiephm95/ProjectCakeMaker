@@ -2,6 +2,7 @@ package com.example.hoanghiep.projectcakemaker.adapter;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.v13.app.FragmentStatePagerAdapter;
 
@@ -15,6 +16,9 @@ import com.example.hoanghiep.projectcakemaker.fragment.ProfileFragment;
  * Created by hoanghiep on 03/12/2015.
  */
 public class SelectPagerAdapter extends FragmentStatePagerAdapter {
+
+    public int icon[] = {R.mipmap.ic_home_tab,R.mipmap.ic_cake_tab,R.mipmap.ic_event_tab};
+    public Context context;
 
     public SelectPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -53,6 +57,8 @@ public class SelectPagerAdapter extends FragmentStatePagerAdapter {
         return null;
     }
 
-
+    public Drawable getIcon(int position) {
+        return context.getResources().getDrawable(icon[position]);
+    }
 
 }

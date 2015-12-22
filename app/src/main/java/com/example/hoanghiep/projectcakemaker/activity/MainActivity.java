@@ -1,13 +1,10 @@
 package com.example.hoanghiep.projectcakemaker.activity;
 
 import android.annotation.TargetApi;
-import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -22,7 +20,6 @@ import android.widget.TextView;
 
 import com.example.hoanghiep.projectcakemaker.R;
 import com.example.hoanghiep.projectcakemaker.adapter.MenuAdapter;
-import com.example.hoanghiep.projectcakemaker.adapter.SelectPagerAdapter;
 import com.example.hoanghiep.projectcakemaker.fragment.AboutUsFragment;
 import com.example.hoanghiep.projectcakemaker.fragment.CategoryFragment;
 import com.example.hoanghiep.projectcakemaker.fragment.HomeFragment;
@@ -31,11 +28,17 @@ import com.example.hoanghiep.projectcakemaker.model.Event;
 import com.example.hoanghiep.projectcakemaker.model.Picture;
 import com.example.hoanghiep.projectcakemaker.model.Product;
 import com.example.hoanghiep.projectcakemaker.model.Screen;
+<<<<<<< Updated upstream
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.parse.Parse;
 import com.parse.ParseObject;
+=======
+import com.oguzdev.circularfloatingactionmenu.library.FloatingActionButton;
+import com.oguzdev.circularfloatingactionmenu.library.FloatingActionMenu;
+import com.oguzdev.circularfloatingactionmenu.library.SubActionButton;
+>>>>>>> Stashed changes
 
 import java.util.ArrayList;
 
@@ -54,6 +57,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     MenuAdapter menuAdapter;
     ArrayList<Screen> screenArrayList = new ArrayList<>();
 
+    public static final String TAG_SORT_EVENT = "sortName";
+    public static final String TAG_SORT_ABOUTUS = "sortDate";
+    public static final String TAG_SORT_CONTACTUS = "sortAge";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,16 +79,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         setActions();
 
+<<<<<<< Updated upstream
 
         //setUpViewPager();
+=======
+        buildFAB();
+
+>>>>>>> Stashed changes
     }
 
     public void initProject() {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.main_frame, new HomeFragment());
+        transaction.replace(R.id.main_frame, new CategoryFragment());
         transaction.commit();
     }
 
+<<<<<<< Updated upstream
     private void initImageLoader()
     {
         DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
@@ -102,6 +116,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
+=======
+>>>>>>> Stashed changes
 
     private void initViews() {
         tvTitle = (TextView) findViewById(R.id.tvTitle);
@@ -113,11 +129,64 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    public void buildFAB() {
+
+        ImageView icon = new ImageView(this); // Create an icon
+        icon.setImageResource(R.mipmap.ic_plus);
+
+        FloatingActionButton actionButton = new FloatingActionButton.Builder(this)
+                .setBackgroundDrawable(R.drawable.select_button_pink)
+                .setContentView(icon)
+                .build();
+
+        ImageView iconSortName = new ImageView(this);
+        iconSortName.setImageResource(R.mipmap.ic_event_fab);
+        ImageView iconSortDate = new ImageView(this);
+        iconSortDate.setImageResource(R.mipmap.ic_about_us_fab);
+        ImageView iconSortAge = new ImageView(this);
+        iconSortAge.setImageResource(R.mipmap.ic_contact_us_fab);
+
+        SubActionButton.Builder itemBuilder = new SubActionButton.Builder(this);
+        itemBuilder.setBackgroundDrawable(getResources().getDrawable(R.drawable.select_sub_button_pink));
+        itemBuilder.setLayoutParams(new FrameLayout.LayoutParams(80,80));
+
+        SubActionButton buttonSortName = itemBuilder.setContentView(iconSortName).build();
+        SubActionButton buttonSortDate = itemBuilder.setContentView(iconSortDate).build();
+        SubActionButton buttonSortAge = itemBuilder.setContentView(iconSortAge).build();
+
+        buttonSortName.setTag(TAG_SORT_EVENT);
+        buttonSortDate.setTag(TAG_SORT_ABOUTUS);
+        buttonSortAge.setTag(TAG_SORT_CONTACTUS);
+
+        buttonSortName.setOnClickListener(this);
+        buttonSortDate.setOnClickListener(this);
+        buttonSortAge.setOnClickListener(this);
+
+        FloatingActionMenu actionMenu = new FloatingActionMenu.Builder(this)
+                .addSubActionView(buttonSortName)
+                .addSubActionView(buttonSortDate)
+                .addSubActionView(buttonSortAge)
+                .attachTo(actionButton)
+                .build();
+
+        actionMenu.setStateChangeListener(new FloatingActionMenu.MenuStateChangeListener() {
+            @Override
+            public void onMenuOpened(FloatingActionMenu floatingActionMenu) {
+
+            }
+
+            @Override
+            public void onMenuClosed(FloatingActionMenu floatingActionMenu) {
+
+            }
+        });
+
+
+    }
 
     private void setUpMenu() {
         mDrawerToggle = new ActionBarDrawerToggle(this, dlLayout, 0, 0);
 
-        screenArrayList.add(new Screen(R.mipmap.icon_home, "Home"));
         screenArrayList.add(new Screen(R.mipmap.icon_cake, "Category"));
         screenArrayList.add(new Screen(R.mipmap.icon_contact_us, "Contact Us"));
         screenArrayList.add(new Screen(R.mipmap.icon_about_us, "About Us"));
@@ -156,10 +225,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
                 switch (position) {
-                    case Screen.HOME:
-                        transaction.replace(R.id.main_frame, new HomeFragment());
-                        transaction.commit();
-                        break;
                     case Screen.CATEGORY:
                         transaction.replace(R.id.main_frame, new CategoryFragment());
                         transaction.commit();

@@ -68,4 +68,5 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.myClickListener = myClickListener;
     }
 
+
 }
