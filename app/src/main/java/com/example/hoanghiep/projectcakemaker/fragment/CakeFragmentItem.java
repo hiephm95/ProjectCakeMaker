@@ -49,9 +49,7 @@ public class CakeFragmentItem extends Fragment {
             }
             final RelativeLayout relativeLayout = (RelativeLayout) root.findViewById(R.id.fragcake_one);
             recyclerView = (RecyclerView) root.findViewById(R.id.rvcake_one);
-
             recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-
             recyclerView.setHasFixedSize(true);
             for (int i = 0; i < 6; i++) {
                 Product p = new Product();

@@ -2,6 +2,7 @@ package com.example.hoanghiep.projectcakemaker.activity;
 
 import android.annotation.TargetApi;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     RelativeLayout rlLeftDrawer;
     DrawerLayout dlLayout;
     ImageView vActionLeft;
+    ImageView ivCart;
     Toolbar toolbar;
 
 
@@ -116,10 +118,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initViews() {
         tvTitle = (TextView) findViewById(R.id.tvTitle);
         lsvMenu = (ListView) findViewById(R.id.lsvMenu);
+        ivCart = (ImageView) findViewById(R.id.ivCart);
         rlLeftDrawer = (RelativeLayout) findViewById(R.id.left_drawer);
         dlLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         vActionLeft = (ImageView) findViewById(R.id.actionLeft);
         toolbar = (Toolbar) findViewById(R.id.toolBar);
+        ivCart.setOnClickListener(this);
 
     }
 
@@ -251,6 +255,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                }
 //                break;
                 dlLayout.openDrawer(rlLeftDrawer);
+                break;
+            case R.id.ivCart:
+                Intent i = new Intent(getBaseContext(),CartActivity.class);
+                startActivity(i);
         }
     }
 

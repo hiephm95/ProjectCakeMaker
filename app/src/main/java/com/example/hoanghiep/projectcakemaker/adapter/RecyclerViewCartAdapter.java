@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.hoanghiep.projectcakemaker.R;
@@ -31,9 +32,15 @@ public class RecyclerViewCartAdapter extends RecyclerView.Adapter<RecyclerViewCa
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolderCart holder, int position) {
+    public void onBindViewHolder(MyViewHolderCart holder, final int position) {
         holder.tvNameCart.setText(myCart.get(position).getName());
         holder.tvPriceCart.setText(String.valueOf(myCart.get(position).getPrice()));
+        holder.icRemove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                removeItem(position);
+            }
+        });
     }
 
     @Override
@@ -45,11 +52,13 @@ public class RecyclerViewCartAdapter extends RecyclerView.Adapter<RecyclerViewCa
 
         TextView tvNameCart;
         TextView tvPriceCart;
+        ImageView icRemove;
 
         public MyViewHolderCart(View itemView) {
             super(itemView);
             tvNameCart = (TextView) itemView.findViewById(R.id.tvNameCart);
             tvPriceCart = (TextView) itemView.findViewById(R.id.tvPriceCart);
+            icRemove = (ImageView) itemView.findViewById(R.id.ic_remove);
             itemView.setOnClickListener(this);
 
         }
@@ -66,5 +75,10 @@ public class RecyclerViewCartAdapter extends RecyclerView.Adapter<RecyclerViewCa
 
     public void setOnClickItemCart(OnClickItemCart onClickItemCart) {
         this.onClickItemCart = onClickItemCart;
+    }
+
+    public void removeItem(int position) {
+        myCart.remove(position);
+        notifyItemRemoved(position);
     }
 }
