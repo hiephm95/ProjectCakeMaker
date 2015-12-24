@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
+import android.widget.ImageView;
 
 import com.example.hoanghiep.projectcakemaker.R;
 import com.example.hoanghiep.projectcakemaker.adapter.RecyclerViewCartAdapter;
@@ -19,18 +20,20 @@ import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter;
 /**
  * Created by HoangHiep on 12/22/15.
  */
-public class CartActivity extends AppCompatActivity {
+public class CartActivity extends AppCompatActivity implements View.OnClickListener{
 
     private RecyclerView recyclerViewCart;
     private RecyclerView.Adapter adapter;
     private RecyclerViewCartAdapter recyclerViewCartAdapter;
     private ArrayList<Product> products = new ArrayList<>();
+    ImageView acitonBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cart_activity);
 
+        acitonBack = (ImageView) findViewById(R.id.actionBack);
         recyclerViewCart = (RecyclerView) findViewById(R.id.rvCart);
         recyclerViewCart.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         recyclerViewCart.setHasFixedSize(true);
@@ -44,6 +47,7 @@ public class CartActivity extends AppCompatActivity {
 
         adapter = new RecyclerViewCartAdapter(products);
         setUpAnimRecycleView();
+        acitonBack.setOnClickListener(this);
     }
 
     public void setUpAnimRecycleView() {
@@ -63,6 +67,11 @@ public class CartActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+        finish();
     }
 }
 

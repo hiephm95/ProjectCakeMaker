@@ -18,4 +18,6 @@
     <color name="grey">#BDBDBD</color>
     <color name="grey_light">#FAFAFA</color>
     <color name="pink">#F06292</color>
+    <color name="pink_light">#f3dff7</color>
+    <color name="pink_light2">#f5e7f8</color>
 </resources>

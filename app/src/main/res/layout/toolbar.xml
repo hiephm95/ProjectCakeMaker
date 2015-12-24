@@ -31,8 +31,9 @@
 
         <ImageView
             android:id="@+id/ivCart"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginTop="5dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="16dp"
             android:src="@mipmap/ic_cart" />

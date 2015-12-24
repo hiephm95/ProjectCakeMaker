@@ -1,14 +1,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="@dimen/activity_vertical_margin">
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="10dp"
+    android:background="#f3dff7"
+    >
 
-    <RelativeLayout
+    <android.support.v7.widget.CardView
         android:id="@+id/layoutInfo"
         android:layout_width="match_parent"
         android:layout_height="140dp"
-        android:background="@drawable/custom_border">
+        card_view:cardUseCompatPadding="false">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -45,8 +50,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvDetailName"
-                android:layout_marginTop="5dp"
                 android:layout_marginLeft="120dp"
+                android:layout_marginTop="5dp"
                 android:textSize="18dp" />
 
             <TextView
@@ -59,16 +64,16 @@
                 android:textColor="@color/black"
                 android:textSize="18dp" />
 
-            <com.rey.material.widget.CheckBox
+            <com.rey.material.widget.RadioButton
                 android:id="@+id/cbEggLess"
+                style="@style/Material.Drawable.RadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvDetailPrice"
-                android:button="@color/pink"
                 android:layout_marginLeft="115dp"
                 android:layout_marginTop="1dp"
-                style="@style/Material.Drawable.CheckBox"
-                app:cbd_strokeColor="@color/pink"/>
+                android:button="@color/pink"
+                app:rbd_strokeColor="@color/pink" />
 
             <TextView
                 android:id="@+id/tvEggWith"
@@ -80,26 +85,26 @@
                 android:textColor="@color/black"
                 android:textSize="18dp" />
 
-            <com.rey.material.widget.CheckBox
+            <com.rey.material.widget.RadioButton
                 android:id="@+id/cbEggWith"
+                style="@style/Material.Drawable.RadioButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/tvEggLess"
                 android:layout_marginLeft="115dp"
-                style="@style/Material.Drawable.CheckBox"
                 android:layout_marginTop="1dp"
-                app:cbd_strokeColor="@color/pink"/>
+                app:rbd_strokeColor="@color/pink" />
         </RelativeLayout>
 
-    </RelativeLayout>
+    </android.support.v7.widget.CardView>
 
-    <RelativeLayout
+    <android.support.v7.widget.CardView
         android:id="@+id/layoutDesciption"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_below="@+id/layoutInfo"
         android:layout_marginTop="20dp"
-        android:background="@drawable/custom_border">
+        card_view:cardUseCompatPadding="true">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -125,7 +130,7 @@
 
         </RelativeLayout>
 
-    </RelativeLayout>
+    </android.support.v7.widget.CardView>
 
 
     <LinearLayout
@@ -148,7 +153,7 @@
             android:layout_height="60dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/custom_border"
-            android:text="Add to favourite"
+            android:text="Add to Cart"
             android:textAllCaps="false"
             android:textColor="@color/gray" />
 
