@@ -35,13 +35,13 @@
         </RelativeLayout>
 
     </android.support.v7.widget.Toolbar>
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvCart"
+    <FrameLayout
+        android:id="@+id/flCart"
         android:layout_below="@+id/toolBar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/layoutTotal"
-        android:layout_marginTop="5dp"/>
+        android:layout_above="@+id/layoutTotal"/>
+
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"

@@ -9,6 +9,7 @@
         android:id="@+id/appBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/pink_light2"
         android:fitsSystemWindows="true">
 
         <android.support.design.widget.CollapsingToolbarLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -23,7 +24,7 @@
                 android:id="@+id/ivProductDetails"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="centerCrop"
+                android:scaleType="fitCenter"
                 android:transitionName="transitionImage"
                 app:layout_collapseMode="parallax" />
 

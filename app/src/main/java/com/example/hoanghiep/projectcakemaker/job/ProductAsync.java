@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ListView;
 
+import com.example.hoanghiep.projectcakemaker.R;
 import com.example.hoanghiep.projectcakemaker.adapter.ItemAdapter;
 import com.example.hoanghiep.projectcakemaker.adapter.RecyclerViewAdapter;
 import com.example.hoanghiep.projectcakemaker.model.Event;

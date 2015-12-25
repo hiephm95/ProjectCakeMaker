@@ -58,7 +58,8 @@ public class CategoryFragment extends Fragment implements MaterialTabListener{
             for (int i = 0; i < adapter.getCount(); i++) {
                 tabLayout.addTab(
                         tabLayout.newTab()
-                                .setIcon(adapter.getIcon(i))
+                                .setText(adapter.getPageTitle(i))
+                                //.setIcon(adapter.getIcon(i))
                                 .setTabListener(this)
 
                 );

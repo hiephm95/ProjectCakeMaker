@@ -7,10 +7,9 @@ import android.graphics.drawable.Drawable;
 import android.support.v13.app.FragmentStatePagerAdapter;
 
 import com.example.hoanghiep.projectcakemaker.R;
-import com.example.hoanghiep.projectcakemaker.fragment.CakeFragment;
 import com.example.hoanghiep.projectcakemaker.fragment.EventFragment;
 import com.example.hoanghiep.projectcakemaker.fragment.HomeFragment;
-import com.example.hoanghiep.projectcakemaker.fragment.ProfileFragment;
+import com.example.hoanghiep.projectcakemaker.fragment.ProductFragment;
 
 /**
  * Created by hoanghiep on 03/12/2015.
@@ -30,7 +29,7 @@ public class SelectPagerAdapter extends FragmentStatePagerAdapter {
             case 0:
                 return new HomeFragment();
             case 1:
-                return new CakeFragment();
+                return new ProductFragment();
             case 2:
                 return new EventFragment();
 
@@ -50,7 +49,7 @@ public class SelectPagerAdapter extends FragmentStatePagerAdapter {
             case 0:
                 return "Home";
             case 1:
-                return "Cake";
+                return "Product";
             case 2:
                 return "Event";
         }
