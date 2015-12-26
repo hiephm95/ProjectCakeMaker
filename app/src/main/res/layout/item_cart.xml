@@ -52,6 +52,15 @@
                     android:paddingRight="11dp"
                     android:textSize="16dp"
                     android:text="Price" />
+                <TextView
+                    android:id="@+id/tvQuantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/tvNameCart"
+                    android:paddingRight="11dp"
+                    android:textSize="16dp"
+                    android:text="Quantity" />
             </LinearLayout>
             <ImageView
                 android:id="@+id/ic_remove"

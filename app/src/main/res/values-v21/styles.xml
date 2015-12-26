@@ -3,5 +3,15 @@
     <style name="MyMaterialThemeSecond" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowTranslucentStatus">true</item>
     </style>
+    <style name="EditText" parent="TextAppearance.AppCompat">
+        //hint color And Label Color in False State
+        <item name="android:textColorHint">@color/black</item>
+        <item name="android:textSize">18dp</item>
+        //Label color in True State And Bar Color False And True State
+        <item name="colorAccent">@color/black</item>
+        <item name="colorControlNormal">@color/black</item>
+        <item name="colorControlActivated">@color/black</item>
+
+    </style>
 
 </resources>

@@ -67,7 +67,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-
     private void initViews() {
         ivCart = (ImageView) findViewById(R.id.ivCart);
         toolbar = (Toolbar) findViewById(R.id.toolBar);

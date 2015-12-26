@@ -29,8 +29,6 @@ public class SelectPagerAdapter extends FragmentStatePagerAdapter {
             case 0:
                 return new HomeFragment();
             case 1:
-                return new ProductFragment();
-            case 2:
                 return new EventFragment();
 
         }
@@ -40,7 +38,7 @@ public class SelectPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 2;
     }
 
     @Override
@@ -49,8 +47,6 @@ public class SelectPagerAdapter extends FragmentStatePagerAdapter {
             case 0:
                 return "Home";
             case 1:
-                return "Product";
-            case 2:
                 return "Event";
         }
         return null;

@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="10dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -13,22 +13,29 @@
             android:id="@+id/tvBrand"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Brand"
-            android:layout_marginTop="8dp"
             android:layout_alignParentLeft="true"
+            android:layout_marginTop="8dp"
+            android:text="Brand"
             android:textColor="@color/black"
             android:textSize="20dp" />
-        <TextView
-            android:id="@+id/tvMore"
+
+        <com.andexert.library.RippleView
             android:layout_width="80dp"
             android:layout_height="40dp"
-            android:text="More"
-            android:gravity="center"
-            android:shadowColor="@color/black"
-            android:background="@drawable/custom_tvmore"
-            android:layout_alignParentRight="true"
-            android:textColor="@color/white"
-            android:textSize="20dp" />
+            android:layout_alignParentRight="true">
+
+            <TextView
+                android:id="@+id/tvMore"
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/custom_tvmore"
+                android:gravity="center"
+                android:shadowColor="@color/black"
+                android:text="More"
+                android:textColor="@color/white"
+                android:textSize="20dp" />
+        </com.andexert.library.RippleView>
 
     </RelativeLayout>
 
@@ -36,8 +43,8 @@
         android:id="@+id/hsvItem"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
         android:scrollbars="none">
 
         <LinearLayout
