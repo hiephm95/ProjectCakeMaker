@@ -41,11 +41,14 @@ public class CakeFragmentItem extends Fragment {
                              Bundle savedInstanceState) {
         if (root == null) {
 <<<<<<< HEAD
+<<<<<<< HEAD
             root =  inflater.inflate(R.layout.fragment_cake_item, container, false);
 //            if (Build.VERSION.SDK_INT >= 21) {
 //                getActivity().getWindow().setSharedElementEnterTransition(TransitionInflater.from(getActivity()).inflateTransition(R.transition.share_element_transition_a));
 //            }
 =======
+=======
+>>>>>>> origin/master
             root = inflater.inflate(R.layout.fragment_cake_item, container, false);
             if (Build.VERSION.SDK_INT >= 21) {
                 getActivity().getWindow().setSharedElementEnterTransition(TransitionInflater.from(getActivity()).inflateTransition(R.transition.share_element_transition_a));
@@ -66,6 +69,7 @@ public class CakeFragmentItem extends Fragment {
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     @Override
     public void onResume() {
         super.onResume();
@@ -80,6 +84,10 @@ public class CakeFragmentItem extends Fragment {
 
             }
         });
+=======
+        }
+        return root;
+>>>>>>> origin/master
 =======
         }
         return root;

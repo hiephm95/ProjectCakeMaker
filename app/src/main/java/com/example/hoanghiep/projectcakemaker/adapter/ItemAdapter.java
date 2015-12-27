@@ -93,6 +93,9 @@ public class ItemAdapter extends BaseAdapter {
 =======
                 Intent i = new Intent(parent.getContext(), CakeActivityOne.class);
                 i.putExtra("event", events.get(position).getName());
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
                 parent.getContext().startActivity(i);
             }
