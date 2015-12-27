@@ -40,20 +40,13 @@ public class CakeFragmentItem extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         if (root == null) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-            root =  inflater.inflate(R.layout.fragment_cake_item, container, false);
+            root = inflater.inflate(R.layout.fragment_cake_item, container, false);
 //            if (Build.VERSION.SDK_INT >= 21) {
 //                getActivity().getWindow().setSharedElementEnterTransition(TransitionInflater.from(getActivity()).inflateTransition(R.transition.share_element_transition_a));
 //            }
-=======
-=======
->>>>>>> origin/master
-            root = inflater.inflate(R.layout.fragment_cake_item, container, false);
             if (Build.VERSION.SDK_INT >= 21) {
                 getActivity().getWindow().setSharedElementEnterTransition(TransitionInflater.from(getActivity()).inflateTransition(R.transition.share_element_transition_a));
             }
->>>>>>> origin/master
             final RelativeLayout relativeLayout = (RelativeLayout) root.findViewById(R.id.fragcake_one);
             recyclerView = (RecyclerView) root.findViewById(R.id.rvcake_one);
             recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
@@ -65,32 +58,7 @@ public class CakeFragmentItem extends Fragment {
             async.adapter = adapter;
             async.recyclerView = recyclerView;
             async.execute(b.getString("event"));
-
-
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-    @Override
-    public void onResume() {
-        super.onResume();
-        ((RecyclerViewAdapter) adapter).setOnItemClickListener(new RecyclerViewAdapter.MyClickListener() {
-            @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-            @Override
-            public void onItemClick(View view, int position) {
-//                view.setTransitionName("transitionImage");
-//                ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity(), view, view.getTransitionName());
-//                Intent i = new Intent(getActivity(), DetailActivity.class);
-//                startActivity(i, optionsCompat.toBundle());
-
-            }
-        });
-=======
         }
         return root;
->>>>>>> origin/master
-=======
-        }
-        return root;
->>>>>>> origin/master
     }
 }

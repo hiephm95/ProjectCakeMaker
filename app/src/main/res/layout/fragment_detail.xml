@@ -171,14 +171,7 @@
                 android:id="@+id/btnCart"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-<<<<<<< HEAD
-<<<<<<< HEAD
                 android:background="@color/pink"
-=======
-=======
->>>>>>> origin/master
-                android:background="@color/white"
->>>>>>> origin/master
                 android:text="Add to Cart"
                 android:textAllCaps="false"
                 android:textColor="@color/white" />

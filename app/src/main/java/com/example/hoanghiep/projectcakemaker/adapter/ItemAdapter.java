@@ -88,15 +88,8 @@ public class ItemAdapter extends BaseAdapter {
         vhCategory.tvMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-<<<<<<< HEAD
                 Intent i = new Intent(parent.getContext(), CakeActivityItem.class);
-=======
-                Intent i = new Intent(parent.getContext(), CakeActivityOne.class);
                 i.putExtra("event", events.get(position).getName());
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
->>>>>>> origin/master
                 parent.getContext().startActivity(i);
             }
         });
