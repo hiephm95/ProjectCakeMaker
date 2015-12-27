@@ -2,6 +2,7 @@ package com.example.hoanghiep.projectcakemaker.activity;
 
 import android.annotation.TargetApi;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -14,9 +15,10 @@ import com.example.hoanghiep.projectcakemaker.fragment.DetailFragment;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 
-public class DetailActivity extends AppCompatActivity {
+public class DetailActivity extends AppCompatActivity implements View.OnClickListener{
     ImageView actionLeft3;
     ImageView ivProductDetails;
+    ImageView ivCart;
     TransitionInflater transitionInflater;
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -46,9 +48,17 @@ public class DetailActivity extends AppCompatActivity {
     private void initView() {
         actionLeft3 = (ImageView) findViewById(R.id.actionLeft3);
         ivProductDetails = (ImageView) findViewById(R.id.ivProductDetails);
+        ivCart = (ImageView) findViewById(R.id.ivCartDetail);
+        ivCart.setOnClickListener(this);
 
         Bundle b = getIntent().getExtras();
         ImageLoader.getInstance().displayImage(b.getString("p_Avatar"), ivProductDetails);
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent i = new Intent(getBaseContext(), CartActivity.class);
+        startActivity(i);
     }
 }

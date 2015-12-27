@@ -38,23 +38,37 @@
                 app:layout_collapseMode="pin"
                 app:titleMarginTop="13dp">
 
-                <ImageView
-                    android:id="@+id/actionLeft3"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:scaleType="centerCrop"
-                    android:src="@mipmap/icon_close" />
-
-                <TextView
-                    android:id="@+id/tv_detail_title"
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
-                    android:paddingLeft="-30dp"
-                    android:text="Detail"
-                    android:textColor="#fff"
-                    android:textSize="20sp" />
+                    android:layout_height="match_parent"
+                    android:paddingTop="16dp">
 
+                    <ImageView
+                        android:id="@+id/actionLeft3"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:scaleType="centerInside"
+                        android:src="@mipmap/icon_close" />
+
+                    <TextView
+                        android:id="@+id/tv_detail_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="Detail"
+                        android:layout_marginBottom="5dp"
+                        android:paddingRight="22dp"
+                        android:textColor="#fff"
+                        android:textSize="20sp" />
+
+                    <ImageView
+                        android:id="@+id/ivCartDetail"
+                        android:layout_width="23dp"
+                        android:layout_height="23dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="16dp"
+                        android:src="@mipmap/ic_cart" />
+                </RelativeLayout>
             </android.support.v7.widget.Toolbar>
 
         </android.support.design.widget.CollapsingToolbarLayout>

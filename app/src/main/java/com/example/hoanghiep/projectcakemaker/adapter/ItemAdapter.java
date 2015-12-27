@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityOptionsCompat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.hoanghiep.projectcakemaker.R;
-import com.example.hoanghiep.projectcakemaker.activity.CakeActivityOne;
+import com.example.hoanghiep.projectcakemaker.activity.CakeActivityItem;
 import com.example.hoanghiep.projectcakemaker.activity.DetailActivity;
 import com.example.hoanghiep.projectcakemaker.model.Event;
 import com.example.hoanghiep.projectcakemaker.model.Product;
@@ -47,7 +46,7 @@ public class ItemAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, final ViewGroup parent) {
+    public View getView(final int position, View convertView, final ViewGroup parent) {
         ViewHolderCategory vhCategory;
         if (convertView == null) {
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout, parent, false);
@@ -89,7 +88,12 @@ public class ItemAdapter extends BaseAdapter {
         vhCategory.tvMore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+<<<<<<< HEAD
+                Intent i = new Intent(parent.getContext(), CakeActivityItem.class);
+=======
                 Intent i = new Intent(parent.getContext(), CakeActivityOne.class);
+                i.putExtra("event", events.get(position).getName());
+>>>>>>> origin/master
                 parent.getContext().startActivity(i);
             }
         });

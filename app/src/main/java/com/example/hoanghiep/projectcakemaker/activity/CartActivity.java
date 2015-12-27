@@ -1,10 +1,14 @@
 package com.example.hoanghiep.projectcakemaker.activity;
 
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Spinner;
+import android.widget.TextView;
+
 import com.example.hoanghiep.projectcakemaker.R;
 import com.example.hoanghiep.projectcakemaker.fragment.CartFragment;
 
@@ -15,6 +19,7 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
 
 
     ImageView acitonBack;
+    TextView tvOrder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +27,9 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.cart_activity);
 
         acitonBack = (ImageView) findViewById(R.id.actionBack);
+        tvOrder = (TextView) findViewById(R.id.tvOrder);
 
+        tvOrder.setOnClickListener(this);
         acitonBack.setOnClickListener(this);
         initCart();
     }
@@ -35,7 +42,16 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        finish();
+        switch (v.getId()) {
+            case R.id.tvOrder:
+                Intent i = new Intent(getBaseContext(), OrderActivity.class);
+                startActivity(i);
+                break;
+            case R.id.actionBack:
+                finish();
+                break;
+        }
+
     }
 }
 

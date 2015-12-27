@@ -1,6 +1,5 @@
 package com.example.hoanghiep.projectcakemaker.activity;
 
-import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,7 +8,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.hoanghiep.projectcakemaker.R;
-import com.example.hoanghiep.projectcakemaker.fragment.CartFragment;
 import com.example.hoanghiep.projectcakemaker.fragment.OrderFragment;
 
 /**
@@ -17,7 +15,6 @@ import com.example.hoanghiep.projectcakemaker.fragment.OrderFragment;
  */
 public class OrderActivity extends AppCompatActivity implements View.OnClickListener{
     ImageView actionBack;
-    TextView actionStep;
     TextView titleStepChange;
 
     @Override
@@ -32,39 +29,22 @@ public class OrderActivity extends AppCompatActivity implements View.OnClickList
 
     public void initView() {
         actionBack = (ImageView) findViewById(R.id.actionBackOrder);
-        actionStep = (TextView) findViewById(R.id.actionStep);
-        titleStepChange = (TextView) findViewById(R.id.tvStep);
         actionBack.setOnClickListener(this);
-        actionStep.setOnClickListener(this);
+
 
     }
 
     public void initOrder() {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.flOrder, new CartFragment());
+        transaction.replace(R.id.flOrder, new OrderFragment());
         transaction.commit();
     }
 
     @Override
     public void onClick(View v) {
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        Fragment currentFragment = getFragmentManager().findFragmentById(R.id.flOrder);
         switch (v.getId()) {
-            case R.id.actionStep:
-                transaction.replace(R.id.flOrder, new OrderFragment());
-                transaction.commit();
-                actionStep.setVisibility(View.GONE);
-                titleStepChange.setText("Step 2");
-                break;
             case R.id.actionBackOrder:
-                if (currentFragment instanceof OrderFragment) {
-                    getFragmentManager().beginTransaction()
-                            .replace(R.id.flOrder, new CartFragment()).commit();
-                    actionStep.setVisibility(View.VISIBLE);
-                    titleStepChange.setText("Step 1");
-                } else {
-                    finish();
-                }
+                finish();
                 break;
 
         }

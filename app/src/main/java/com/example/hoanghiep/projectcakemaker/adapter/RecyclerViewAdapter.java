@@ -4,10 +4,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.hoanghiep.projectcakemaker.R;
 import com.example.hoanghiep.projectcakemaker.model.Product;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +38,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(MyViewHolder holder, int position) {
         holder.tvName.setText(products.get(position).getName());
         holder.tvPrice.setText(String.valueOf(products.get(position).getPrice()));
+        ImageLoader.getInstance().displayImage(products.get(position).getPicturesList().get(0).getFile().getUrl(), holder.ivProductMore);
+
+
     }
 
     @Override
@@ -46,11 +51,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView tvName;
         TextView tvPrice;
+        ImageView ivProductMore;
 
         public MyViewHolder(View itemView) {
             super(itemView);
             tvName = (TextView) itemView.findViewById(R.id.tvName);
             tvPrice = (TextView) itemView.findViewById(R.id.tvPrice);
+            ivProductMore = (ImageView) itemView.findViewById(R.id.ivProductMore);
             itemView.setOnClickListener(this);
         }
 

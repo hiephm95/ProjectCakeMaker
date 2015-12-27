@@ -1,13 +1,17 @@
 package com.example.hoanghiep.projectcakemaker.adapter;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.hoanghiep.projectcakemaker.R;
+import com.example.hoanghiep.projectcakemaker.activity.CartActivity;
 import com.example.hoanghiep.projectcakemaker.model.Product;
 
 import java.util.ArrayList;
@@ -18,6 +22,7 @@ import java.util.ArrayList;
 public class RecyclerViewCartAdapter extends RecyclerView.Adapter<RecyclerViewCartAdapter.MyViewHolderCart> {
     private ArrayList<Product> myCart;
     private static OnClickItemCart onClickItemCart;
+
 
     public RecyclerViewCartAdapter(ArrayList<Product> myCart) {
         this.myCart = myCart;
@@ -41,6 +46,7 @@ public class RecyclerViewCartAdapter extends RecyclerView.Adapter<RecyclerViewCa
                 removeItem(position);
             }
         });
+
     }
 
     @Override
@@ -53,12 +59,13 @@ public class RecyclerViewCartAdapter extends RecyclerView.Adapter<RecyclerViewCa
         TextView tvNameCart;
         TextView tvPriceCart;
         ImageView icRemove;
-
+        Spinner spinQuantityCart;
         public MyViewHolderCart(View itemView) {
             super(itemView);
             tvNameCart = (TextView) itemView.findViewById(R.id.tvNameCart);
             tvPriceCart = (TextView) itemView.findViewById(R.id.tvPriceCart);
             icRemove = (ImageView) itemView.findViewById(R.id.ic_remove);
+            spinQuantityCart = (Spinner) itemView.findViewById(R.id.spinQuantityCart);
             itemView.setOnClickListener(this);
 
         }

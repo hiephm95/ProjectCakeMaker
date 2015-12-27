@@ -21,29 +21,20 @@
                 android:layout_height="25dp"
                 android:layout_alignParentLeft="true"
                 android:paddingRight="10dp"
-                android:scaleType="centerCrop"
+                android:scaleType="centerInside"
                 android:src="@mipmap/ic_arrow_back" />
 
             <TextView
-                android:id="@+id/tvStep"
+                android:id="@+id/tvTitleOrder"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="30dp"
+                android:layout_centerInParent="true"
                 android:scaleType="centerInside"
-                android:text="Step 1"
+                android:paddingRight="18dp"
+                android:text="Order"
                 android:textColor="@color/white"
                 android:textSize="20dp" />
 
-            <TextView
-                android:id="@+id/actionStep"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="16dp"
-                android:text="Next"
-                android:textColor="@color/white"
-                android:textSize="20dp" />
 
         </RelativeLayout>
 
