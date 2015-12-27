@@ -159,7 +159,6 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-
                 android:background="@color/white"
                 android:text="Add to Cart"
                 android:textAllCaps="false"

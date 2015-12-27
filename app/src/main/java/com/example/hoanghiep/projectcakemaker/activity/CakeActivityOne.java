@@ -23,14 +23,17 @@ public class CakeActivityOne extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_cake_one);
         actionLeft2 = (ImageView) findViewById(R.id.actionLeft2);
         tvWeddingTitle = (TextView) findViewById(R.id.tv_wedding_title);
-        tvWeddingTitle.setText("Wedding Cake");
+        Bundle bundle = getIntent().getExtras();
+        tvWeddingTitle.setText(bundle.getString("event"));
         actionLeft2.setOnClickListener(this);
         initProject();
     }
 
     public void initProject() {
+        CakeFragmentItem cakeFragmentItem = new CakeFragmentItem();
+        cakeFragmentItem.setArguments(getIntent().getExtras());
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.flCakeWedding, new CakeFragmentItem());
+        transaction.replace(R.id.flCakeWedding, cakeFragmentItem);
         transaction.commit();
     }
 

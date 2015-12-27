@@ -10,7 +10,7 @@ import android.widget.ListView;
 
 import com.example.hoanghiep.projectcakemaker.R;
 import com.example.hoanghiep.projectcakemaker.adapter.ItemAdapter;
-import com.example.hoanghiep.projectcakemaker.job.ProductAsync;
+import com.example.hoanghiep.projectcakemaker.job.EventAsync;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,10 +29,10 @@ public class EventFragment extends Fragment{
             root = inflater.inflate(R.layout.fragment_event, container, false);
             lsvItem = (ListView) root.findViewById(R.id.lsvItem);
 
-            ProductAsync productAsync = new ProductAsync(getActivity());
-            productAsync.adapter = adapter;
-            productAsync.lsvItem = lsvItem;
-            productAsync.execute();
+            EventAsync eventAsync = new EventAsync(getActivity());
+            eventAsync.adapter = adapter;
+            eventAsync.lsvItem = lsvItem;
+            eventAsync.execute();
 
 
         }

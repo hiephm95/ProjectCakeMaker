@@ -47,7 +47,7 @@ public class ItemAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, final ViewGroup parent) {
+    public View getView(final int position, View convertView, final ViewGroup parent) {
         ViewHolderCategory vhCategory;
         if (convertView == null) {
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout, parent, false);
@@ -90,6 +90,7 @@ public class ItemAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(parent.getContext(), CakeActivityOne.class);
+                i.putExtra("event", events.get(position).getName());
                 parent.getContext().startActivity(i);
             }
         });
