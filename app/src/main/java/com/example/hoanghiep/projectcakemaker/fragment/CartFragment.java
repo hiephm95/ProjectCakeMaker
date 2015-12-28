@@ -9,9 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
+import android.widget.Toast;
 
 import com.example.hoanghiep.projectcakemaker.R;
 import com.example.hoanghiep.projectcakemaker.adapter.RecyclerViewCartAdapter;
+import com.example.hoanghiep.projectcakemaker.model.Cart;
 import com.example.hoanghiep.projectcakemaker.model.Product;
 
 import java.util.ArrayList;
@@ -54,6 +56,8 @@ public class CartFragment extends Fragment {
                 p.setPrice(1);
                 products.add(p);
             }
+
+            Toast.makeText(getActivity(), "Count:" + Cart.productList().size(), Toast.LENGTH_SHORT).show();
 
             adapter = new RecyclerViewCartAdapter(products);
             setUpAnimRecycleView();

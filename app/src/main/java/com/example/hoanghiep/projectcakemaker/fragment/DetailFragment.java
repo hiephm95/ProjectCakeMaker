@@ -1,9 +1,11 @@
 package com.example.hoanghiep.projectcakemaker.fragment;
 
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +17,10 @@ import android.widget.TextView;
 
 import com.example.hoanghiep.projectcakemaker.R;
 import com.example.hoanghiep.projectcakemaker.activity.CartActivity;
+import com.example.hoanghiep.projectcakemaker.activity.DetailActivity;
 import com.example.hoanghiep.projectcakemaker.activity.OrderActivity;
+import com.example.hoanghiep.projectcakemaker.model.Cart;
+import com.example.hoanghiep.projectcakemaker.model.Product;
 
 import org.w3c.dom.Text;
 
@@ -28,6 +33,7 @@ public class DetailFragment extends Fragment implements View.OnClickListener {
     TextView tvDetailDescription;
     Button btnCart;
     Spinner spinQuantity;
+
     public DetailFragment() {
         // Required empty public constructor
     }
@@ -45,8 +51,7 @@ public class DetailFragment extends Fragment implements View.OnClickListener {
         return root;
     }
 
-    private void initView()
-    {
+    private void initView() {
         tvDetailName = (TextView) root.findViewById(R.id.tvDetailName);
         tvDetailPrice = (TextView) root.findViewById(R.id.tvDetailPrice);
         tvDetailDescription = (TextView) root.findViewById(R.id.tvDetailDescription);
@@ -56,7 +61,7 @@ public class DetailFragment extends Fragment implements View.OnClickListener {
 
         String[] arraySpinner = new String[]
                 {
-                        "1", "2", "3", "4"
+                        "1", "2", "3", "4", "5", "6"
                 };
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, arraySpinner);
@@ -70,6 +75,7 @@ public class DetailFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-
+        Product p = new Product();
+        Cart.list.add(p);
     }
 }

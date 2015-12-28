@@ -20,6 +20,7 @@ import android.widget.RelativeLayout;
 import com.example.hoanghiep.projectcakemaker.R;
 import com.example.hoanghiep.projectcakemaker.adapter.RecyclerViewAdapter;
 import com.example.hoanghiep.projectcakemaker.adapter.SlideAdapter;
+import com.example.hoanghiep.projectcakemaker.job.ProductAsync;
 import com.example.hoanghiep.projectcakemaker.model.Product;
 
 import java.util.ArrayList;
@@ -41,7 +42,6 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
     private RecyclerView.Adapter recyclerViewAdapter;
     private RecyclerViewAdapter viewAdapter;
 
-    ArrayList<Product> list = new ArrayList<>();
     View root;
     SlideAdapter adapter;
     ViewPager viewPagerHome;
@@ -55,19 +55,15 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
             root = inflater.inflate(R.layout.fragment_home, container, false);
             recyclerView = (RecyclerView) root.findViewById(R.id.rvCake);
             final RelativeLayout relativeLayout = (RelativeLayout) root.findViewById(R.id.layoutHome);
-            recyclerView.setLayoutManager(new StaggeredGridLayoutManager(3,1));
+            recyclerView.setLayoutManager(new StaggeredGridLayoutManager(3, 1));
             recyclerView.setHasFixedSize(true);
-            for (int i = 0; i < 10; i++) {
-                Product p = new Product();
-                p.setName("Cake One");
-                p.setPrice(1);
-                list.add(p);
-            }
-
-
-            recyclerViewAdapter = new RecyclerViewAdapter(list);
-            setUpAnimRecycleView();
             initView();
+            ProductAsync productAsync = new ProductAsync(getActivity());
+            productAsync.recyclerView = recyclerView;
+            productAsync.adapter = viewAdapter;
+            productAsync.execute();
+
+//            setUpAnimRecycleView();
         }
         return root;
 
@@ -145,17 +141,5 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
     @Override
     public void onPageScrollStateChanged(int state) {
 
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        ((RecyclerViewAdapter) recyclerViewAdapter).setOnItemClickListener(new RecyclerViewAdapter.MyClickListener() {
-            @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-            @Override
-            public void onItemClick(View view, int position) {
-
-            }
-        });
     }
 }

@@ -32,6 +32,7 @@ public class EventAsync extends AsyncTask<Void, Void, List<Event>> {
     protected void onPreExecute() {
         progressDialog.setMessage("Please Wait...!");
         progressDialog.setIndeterminate(false);
+        progressDialog.setCancelable(false);
         progressDialog.show();
         Log.d("Status:", "Loading......");
     }
