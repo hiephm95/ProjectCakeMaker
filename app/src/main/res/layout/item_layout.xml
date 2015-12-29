@@ -19,23 +19,18 @@
             android:textColor="@color/black"
             android:textSize="20dp" />
 
-        <com.andexert.library.RippleView
+        <TextView
+            android:id="@+id/tvMore"
             android:layout_width="80dp"
             android:layout_height="40dp"
-            android:layout_alignParentRight="true">
+            android:layout_alignParentRight="true"
+            android:background="@drawable/custom_tvmore"
+            android:gravity="center"
+            android:shadowColor="@color/black"
+            android:text="More"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
 
-            <TextView
-                android:id="@+id/tvMore"
-                android:layout_width="80dp"
-                android:layout_height="40dp"
-                android:layout_alignParentRight="true"
-                android:background="@drawable/custom_tvmore"
-                android:gravity="center"
-                android:shadowColor="@color/black"
-                android:text="More"
-                android:textColor="@color/white"
-                android:textSize="20dp" />
-        </com.andexert.library.RippleView>
 
     </RelativeLayout>
 

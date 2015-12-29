@@ -5,6 +5,7 @@ import android.annotation.TargetApi;
 import android.app.Fragment;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -55,7 +56,7 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
             root = inflater.inflate(R.layout.fragment_home, container, false);
             recyclerView = (RecyclerView) root.findViewById(R.id.rvCake);
             final RelativeLayout relativeLayout = (RelativeLayout) root.findViewById(R.id.layoutHome);
-            recyclerView.setLayoutManager(new StaggeredGridLayoutManager(3, 1));
+            recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, 1));
             recyclerView.setHasFixedSize(true);
             initView();
             ProductAsync productAsync = new ProductAsync(getActivity());
@@ -85,9 +86,8 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
         viewPagerHome.setAdapter(adapter);
         viewPagerHome.setCurrentItem(0);
 
-
-        timer = new Timer();
-        timer.schedule(new TimerTask() {
+        final Handler handler = new Handler();
+        final Runnable Update = new Runnable() {
             @Override
             public void run() {
                 if (count <= 2) {
@@ -98,7 +98,15 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
                     viewPagerHome.setCurrentItem(count);
                 }
             }
-        }, 500, 3000);
+        };
+
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(Update);
+            }
+        }, 500, 2000);
 
         setUiPageViewController();
         viewPagerHome.setOnPageChangeListener(this);
