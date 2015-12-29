@@ -7,10 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
+
 import com.example.hoanghiep.projectcakemaker.R;
 import com.example.hoanghiep.projectcakemaker.fragment.CategoryFragment;
 import com.example.hoanghiep.projectcakemaker.interfaces.ScreenChangeListener;
 import com.example.hoanghiep.projectcakemaker.model.Event;
+import com.example.hoanghiep.projectcakemaker.model.Order;
 import com.example.hoanghiep.projectcakemaker.model.Picture;
 import com.example.hoanghiep.projectcakemaker.model.Product;
 import com.github.clans.fab.FloatingActionMenu;
@@ -39,7 +41,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initViews();
 
         initImageLoader();
-
     }
 
     public void initProject() {
@@ -49,8 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    private void initImageLoader()
-    {
+    private void initImageLoader() {
         DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder()
                 .cacheInMemory(true).cacheOnDisk(true).build();
 
@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ParseObject.registerSubclass(Product.class);
         ParseObject.registerSubclass(Event.class);
         ParseObject.registerSubclass(Picture.class);
+        ParseObject.registerSubclass(Order.class);
         Parse.initialize(this, "l5OJy4F4rw3COKG6Jgc0VKNi7rFQzarUVLcjw4jA", "HCRpx0LQxTlvaBXDQ6BxeFsLnJqkGscA9xf1aq8Q");
     }
 

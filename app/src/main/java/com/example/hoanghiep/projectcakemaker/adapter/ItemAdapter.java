@@ -68,6 +68,7 @@ public class ItemAdapter extends BaseAdapter {
                         ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) parent.getContext(), view, view.getTransitionName());
                         Intent i = new Intent(parent.getContext(), DetailActivity.class);
                         Bundle bundle = new Bundle();
+                        bundle.putString("p_id", p.getObjectId());
                         bundle.putString("p_Avatar", p.getPicturesList().get(0).getFile().getUrl());
                         bundle.putString("p_Name", p.getName());
                         bundle.putDouble("p_Price", p.getPrice());

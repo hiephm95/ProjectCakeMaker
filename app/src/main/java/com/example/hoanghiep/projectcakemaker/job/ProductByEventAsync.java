@@ -77,6 +77,7 @@ public class ProductByEventAsync extends AsyncTask<String, Void, List<Product>> 
                 ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context, view, view.getTransitionName());
                 Intent i = new Intent(context, DetailActivity.class);
                 Bundle bundle = new Bundle();
+                bundle.putString("p_id", productList.get(position).getObjectId());
                 bundle.putString("p_Avatar", productList.get(position).getPicturesList().get(0).getFile().getUrl());
                 bundle.putString("p_Name", productList.get(position).getName());
                 bundle.putDouble("p_Price", productList.get(position).getPrice());

@@ -54,7 +54,7 @@
                 app:theme="@style/EditText">
 
                 <EditText
-                    android:id="@+id/etName"
+                    android:id="@+id/etOrderName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Name"
@@ -71,7 +71,7 @@
                 app:theme="@style/EditText">
 
                 <EditText
-                    android:id="@+id/etAddress"
+                    android:id="@+id/etOrderAddress"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Address"
@@ -88,10 +88,10 @@
                 app:theme="@style/EditText">
 
                 <EditText
-                    android:id="@+id/etContactNum"
+                    android:id="@+id/etOrderPhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Contact Number"
+                    android:hint="Phone Number"
                     android:inputType="number"
                     android:singleLine="true"
                     android:textColor="@color/black" />
@@ -106,7 +106,7 @@
                 app:theme="@style/EditText">
 
                 <EditText
-                    android:id="@+id/etEmail"
+                    android:id="@+id/etOrderEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Email"
@@ -133,7 +133,7 @@
                     android:textSize="18dp" />
 
                 <EditText
-                    android:id="@+id/edtDate"
+                    android:id="@+id/etOrderDeliveryDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
@@ -147,33 +147,6 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="2dp"
-                android:paddingTop="8dp"
-                android:weightSum="12">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="7"
-                    android:text="Quantity: "
-                    android:textColor="@color/black"
-                    android:textSize="18dp" />
-
-                <EditText
-                    android:id="@+id/edtQuantity"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="5"
-                    android:editable="false"
-                    android:gravity="center"
-                    android:paddingRight="10dp"
-                    android:textColor="@color/black" />
-
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -193,7 +166,7 @@
                     android:textSize="18dp" />
 
                 <EditText
-                    android:id="@+id/edtTotal"
+                    android:id="@+id/etOrderTotal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="5"
@@ -214,6 +187,7 @@
         android:paddingTop="20dp">
 
         <Button
+            android:id="@+id/btnOrderSubmit"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@color/pink"

@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ActivityOptionsCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,9 @@ import com.example.hoanghiep.projectcakemaker.activity.DetailActivity;
 import com.example.hoanghiep.projectcakemaker.activity.OrderActivity;
 import com.example.hoanghiep.projectcakemaker.model.Cart;
 import com.example.hoanghiep.projectcakemaker.model.Product;
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseQuery;
 
 import org.w3c.dom.Text;
 
@@ -75,7 +79,19 @@ public class DetailFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        Product p = new Product();
-        Cart.list.add(p);
+        final Bundle bundle = this.getArguments();
+        ParseQuery<Product> query = ParseQuery.getQuery(Product.class);
+        query.fromLocalDatastore();
+        query.getInBackground(bundle.getString("p_id"), new GetCallback<Product>() {
+            @Override
+            public void done(Product object, ParseException e) {
+                if (e == null) {
+                    object.quantity = spinQuantity.getSelectedItemPosition();
+                    Cart.list.add(object);
+                } else {
+                    Log.d("Error:", e.toString());
+                }
+            }
+        });
     }
 }

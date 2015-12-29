@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.hoanghiep.projectcakemaker.R;
@@ -20,6 +19,8 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
 
     ImageView acitonBack;
     TextView tvOrder;
+    public static TextView cartTotal;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
 
         acitonBack = (ImageView) findViewById(R.id.actionBack);
         tvOrder = (TextView) findViewById(R.id.tvOrder);
+        cartTotal = (TextView) findViewById(R.id.cartTotal);
 
         tvOrder.setOnClickListener(this);
         acitonBack.setOnClickListener(this);
@@ -53,5 +55,6 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
+
 }
 

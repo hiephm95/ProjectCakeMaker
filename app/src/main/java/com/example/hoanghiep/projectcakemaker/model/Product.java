@@ -13,6 +13,7 @@ import java.util.List;
 @ParseClassName("Product")
 public class Product extends ParseObject{
     private List<Picture> picturesList;
+    public int quantity;
 
     public Product() {
         picturesList = new ArrayList<>();

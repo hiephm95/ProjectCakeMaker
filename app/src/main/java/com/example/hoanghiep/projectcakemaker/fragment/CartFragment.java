@@ -14,9 +14,6 @@ import android.widget.Toast;
 import com.example.hoanghiep.projectcakemaker.R;
 import com.example.hoanghiep.projectcakemaker.adapter.RecyclerViewCartAdapter;
 import com.example.hoanghiep.projectcakemaker.model.Cart;
-import com.example.hoanghiep.projectcakemaker.model.Product;
-
-import java.util.ArrayList;
 
 import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
 import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter;
@@ -28,13 +25,11 @@ public class CartFragment extends Fragment {
 
 
     public CartFragment() {
-        // Required empty public constructor
     }
 
     private RecyclerView recyclerViewCart;
     private RecyclerView.Adapter adapter;
     private RecyclerViewCartAdapter recyclerViewCartAdapter;
-    private ArrayList<Product> products = new ArrayList<>();
 
 
     View root;
@@ -50,16 +45,9 @@ public class CartFragment extends Fragment {
             recyclerViewCart.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
             recyclerViewCart.setHasFixedSize(true);
 
-            for (int i = 0; i < 6; i++) {
-                Product p = new Product();
-                p.setName("Cake One");
-                p.setPrice(1);
-                products.add(p);
-            }
-
             Toast.makeText(getActivity(), "Count:" + Cart.productList().size(), Toast.LENGTH_SHORT).show();
 
-            adapter = new RecyclerViewCartAdapter(products);
+            adapter = new RecyclerViewCartAdapter(Cart.list);
             setUpAnimRecycleView();
         }
         return root;
@@ -82,8 +70,5 @@ public class CartFragment extends Fragment {
 
             }
         });
-
-
     }
-
 }

@@ -23,8 +23,7 @@ public class EventAsync extends AsyncTask<Void, Void, List<Event>> {
     public ItemAdapter adapter;
     public ListView lsvItem;
 
-    public EventAsync(Context context)
-    {
+    public EventAsync(Context context) {
         progressDialog = new ProgressDialog(context);
     }
 
@@ -49,7 +48,7 @@ public class EventAsync extends AsyncTask<Void, Void, List<Event>> {
                 }
 
             }
-//            Product.pinAll(query.find());
+            Event.pinAll(query.find());
             return query.find();
         } catch (ParseException e) {
             e.printStackTrace();
@@ -63,8 +62,7 @@ public class EventAsync extends AsyncTask<Void, Void, List<Event>> {
         adapter = new ItemAdapter(events);
         lsvItem.setAdapter(adapter);
         lsvItem.setDivider(null);
-        if(progressDialog.isShowing())
-        {
+        if (progressDialog.isShowing()) {
             progressDialog.dismiss();
         }
         Log.d("Status:", "Completed");

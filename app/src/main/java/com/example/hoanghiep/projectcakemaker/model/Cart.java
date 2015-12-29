@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Cart {
     public static List<Product> list = new ArrayList<>();
+    public static double total = 0.0;
 
     public Cart() {
 
