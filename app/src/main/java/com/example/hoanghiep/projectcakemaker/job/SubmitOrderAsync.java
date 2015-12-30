@@ -9,9 +9,14 @@ import com.example.hoanghiep.projectcakemaker.model.Cart;
 import com.example.hoanghiep.projectcakemaker.model.Order;
 import com.example.hoanghiep.projectcakemaker.model.Product;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class SubmitOrderAsync extends AsyncTask<Void, Void, String> {
     ProgressDialog progressDialog;
     public Order order;
+    JSONArray productJsonArray = new JSONArray();
 
     public SubmitOrderAsync(Context context) {
         progressDialog = new ProgressDialog(context);
@@ -28,16 +33,27 @@ public class SubmitOrderAsync extends AsyncTask<Void, Void, String> {
 
     @Override
     protected String doInBackground(Void... params) {
-        order.saveInBackground();
         for (Product p : Cart.list) {
-            order.getProductRelation().add(p);
+            try {
+                JSONObject productJson = new JSONObject();
+                productJson.put("id", p.getObjectId());
+                productJson.put("quantity", p.quantity + 1);
+                productJsonArray.put(productJson);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
+        order.put("products", productJsonArray);
         order.saveInBackground();
         return "Your Order Are Submited.Please wait our reply, thank you ^^";
     }
 
     @Override
     protected void onPostExecute(String s) {
+        Cart.list.clear();
+        if (progressDialog.isShowing() == true) {
+            progressDialog.dismiss();
+        }
         Log.d("Completed", s);
     }
 }

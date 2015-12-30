@@ -3,6 +3,8 @@ package com.example.hoanghiep.projectcakemaker.fragment;
 
 import android.app.DatePickerDialog;
 import android.app.Fragment;
+import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -46,8 +48,6 @@ public class OrderFragment extends Fragment implements View.OnClickListener {
         if (root == null) {
             root = inflater.inflate(R.layout.fragment_order, container, false);
             initView();
-
-
         }
         return root;
     }

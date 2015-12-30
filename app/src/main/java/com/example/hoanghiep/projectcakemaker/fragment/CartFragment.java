@@ -45,7 +45,6 @@ public class CartFragment extends Fragment {
             recyclerViewCart.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
             recyclerViewCart.setHasFixedSize(true);
 
-            Toast.makeText(getActivity(), "Count:" + Cart.productList().size(), Toast.LENGTH_SHORT).show();
 
             adapter = new RecyclerViewCartAdapter(Cart.list);
             setUpAnimRecycleView();

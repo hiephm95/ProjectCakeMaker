@@ -65,9 +65,4 @@ public class Order extends ParseObject {
         put("total", total);
     }
 
-    //getRelation
-    public ParseRelation getProductRelation()
-    {
-        return getRelation("products");
-    }
 }

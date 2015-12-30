@@ -23,8 +23,12 @@ import com.example.hoanghiep.projectcakemaker.adapter.RecyclerViewAdapter;
 import com.example.hoanghiep.projectcakemaker.adapter.SlideAdapter;
 import com.example.hoanghiep.projectcakemaker.job.ProductAsync;
 import com.example.hoanghiep.projectcakemaker.model.Product;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseQuery;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
