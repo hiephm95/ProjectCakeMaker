@@ -1,39 +1,28 @@
 package com.example.hoanghiep.projectcakemaker.fragment;
 
 
-import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.Fragment;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.example.hoanghiep.projectcakemaker.R;
-import com.example.hoanghiep.projectcakemaker.adapter.RecyclerViewAdapter;
+import com.example.hoanghiep.projectcakemaker.adapter.RecyclerViewHomeAdapter;
 import com.example.hoanghiep.projectcakemaker.adapter.SlideAdapter;
+import com.example.hoanghiep.projectcakemaker.interfaces.ScreenChangeListener;
 import com.example.hoanghiep.projectcakemaker.job.ProductAsync;
-import com.example.hoanghiep.projectcakemaker.model.Product;
-import com.parse.FindCallback;
-import com.parse.ParseException;
-import com.parse.ParseQuery;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Timer;
-import java.util.TimerTask;
 
-import jp.wasabeef.recyclerview.adapters.AlphaInAnimationAdapter;
-import jp.wasabeef.recyclerview.adapters.ScaleInAnimationAdapter;
+import cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -45,11 +34,12 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
     private ImageView[] dots;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter recyclerViewAdapter;
-    private RecyclerViewAdapter viewAdapter;
+    private RecyclerViewHomeAdapter viewAdapter;
 
     View root;
     SlideAdapter adapter;
-    ViewPager viewPagerHome;
+    AutoScrollViewPager viewPagerHome;
+    ScreenChangeListener screenChangeListener;
     int count = 0;
     Timer timer;
 
@@ -59,8 +49,8 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
         if (root == null) {
             root = inflater.inflate(R.layout.fragment_home, container, false);
             recyclerView = (RecyclerView) root.findViewById(R.id.rvCake);
-            final RelativeLayout relativeLayout = (RelativeLayout) root.findViewById(R.id.layoutHome);
-            recyclerView.setLayoutManager(new StaggeredGridLayoutManager(2, 1));
+//            final RelativeLayout relativeLayout = (RelativeLayout) root.findViewById(R.id.layoutHome);
+            recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
             recyclerView.setHasFixedSize(true);
             initView();
             ProductAsync productAsync = new ProductAsync(getActivity());
@@ -68,49 +58,22 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
             productAsync.adapter = viewAdapter;
             productAsync.execute();
 
-//            setUpAnimRecycleView();
+
         }
         return root;
 
     }
 
-    public void setUpAnimRecycleView() {
-        AlphaInAnimationAdapter alphaInAnimationAdapter = new AlphaInAnimationAdapter(recyclerViewAdapter);
-        alphaInAnimationAdapter.setDuration(1000);
-        alphaInAnimationAdapter.setInterpolator(new OvershootInterpolator());
-        alphaInAnimationAdapter.setFirstOnly(false);
-        recyclerView.setAdapter(new ScaleInAnimationAdapter(alphaInAnimationAdapter));
-    }
 
     public void initView() {
-        viewPagerHome = (ViewPager) root.findViewById(R.id.viewPagerHome);
+        viewPagerHome = (AutoScrollViewPager) root.findViewById(R.id.viewPagerHome);
         indicator_slide = (LinearLayout) root.findViewById(R.id.pagerCountDots);
         adapter = new SlideAdapter(getActivity());
-
+        screenChangeListener.setTitle("Home");
         viewPagerHome.setAdapter(adapter);
-        viewPagerHome.setCurrentItem(0);
+        viewPagerHome.setInterval(2000);
+        viewPagerHome.startAutoScroll();
 
-        final Handler handler = new Handler();
-        final Runnable Update = new Runnable() {
-            @Override
-            public void run() {
-                if (count <= 2) {
-                    viewPagerHome.setCurrentItem(count);
-                    count++;
-                } else {
-                    count = 0;
-                    viewPagerHome.setCurrentItem(count);
-                }
-            }
-        };
-
-        timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                handler.post(Update);
-            }
-        }, 500, 2000);
 
         setUiPageViewController();
         viewPagerHome.setOnPageChangeListener(this);
@@ -153,5 +116,23 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        viewPagerHome.stopAutoScroll();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        viewPagerHome.startAutoScroll();
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        screenChangeListener = (ScreenChangeListener) activity;
     }
 }

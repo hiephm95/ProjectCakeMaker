@@ -33,6 +33,7 @@
                 android:id="@+id/toolbar_detail"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
+                android:elevation="4dp"
                 android:gravity="top"
                 android:minHeight="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
@@ -40,31 +41,45 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:paddingTop="16dp">
+                    android:layout_height="match_parent">
 
                     <ImageView
                         android:id="@+id/actionLeft3"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="30dp"
+                        android:layout_height="match_parent"
                         android:scaleType="centerInside"
                         android:src="@mipmap/icon_close" />
 
-                    <TextView
-                        android:id="@+id/tv_detail_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:text="Detail"
-                        android:layout_marginBottom="5dp"
-                        android:paddingRight="22dp"
-                        android:textColor="#fff"
-                        android:textSize="20sp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="left|center"
+                        android:orientation="vertical"
+                        android:paddingLeft="45dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_gravity="left"
+                            android:text="T-Cake"
+                            android:textColor="@color/white"
+                            android:textSize="22dp" />
+
+                        <TextView
+                            android:id="@+id/tv_detail_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Detail"
+                            android:layout_gravity="left|center"
+                            android:textColor="#fff"
+                            android:textSize="15dp" />
+                    </LinearLayout>
 
                     <ImageView
                         android:id="@+id/ivCartDetail"
-                        android:layout_width="23dp"
-                        android:layout_height="23dp"
+                        android:layout_width="22dp"
+                        android:layout_height="match_parent"
                         android:layout_alignParentRight="true"
                         android:layout_marginRight="16dp"
                         android:src="@mipmap/ic_cart" />

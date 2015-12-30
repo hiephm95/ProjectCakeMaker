@@ -41,9 +41,7 @@ public class CakeFragmentItem extends Fragment {
                              Bundle savedInstanceState) {
         if (root == null) {
             root = inflater.inflate(R.layout.fragment_cake_item, container, false);
-//            if (Build.VERSION.SDK_INT >= 21) {
-//                getActivity().getWindow().setSharedElementEnterTransition(TransitionInflater.from(getActivity()).inflateTransition(R.transition.share_element_transition_a));
-//            }
+
             if (Build.VERSION.SDK_INT >= 21) {
                 getActivity().getWindow().setSharedElementEnterTransition(TransitionInflater.from(getActivity()).inflateTransition(R.transition.share_element_transition_a));
             }

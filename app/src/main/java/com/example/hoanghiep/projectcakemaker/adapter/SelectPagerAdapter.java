@@ -16,7 +16,7 @@ import com.example.hoanghiep.projectcakemaker.fragment.ProductFragment;
  */
 public class SelectPagerAdapter extends FragmentStatePagerAdapter {
 
-    public int icon[] = {R.mipmap.ic_home_tab,R.mipmap.ic_cake_tab,R.mipmap.ic_event_tab};
+    //public int icon[] = {R.mipmap.ic_home_tab,R.mipmap.ic_cake_tab,R.mipmap.ic_event_tab};
     public Context context;
 
     public SelectPagerAdapter(FragmentManager fm) {
@@ -52,8 +52,8 @@ public class SelectPagerAdapter extends FragmentStatePagerAdapter {
         return null;
     }
 
-    public Drawable getIcon(int position) {
-        return context.getResources().getDrawable(icon[position]);
-    }
+//    public Drawable getIcon(int position) {
+//        return context.getResources().getDrawable(icon[position]);
+//    }
 
 }

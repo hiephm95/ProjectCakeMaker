@@ -1,16 +1,18 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layoutHome"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.hoanghiep.projectcakemaker.fragment.HomeFragment">
 
+
     <RelativeLayout
         android:id="@+id/layoutSlide"
         android:layout_width="match_parent"
         android:layout_height="200dp">
 
-        <android.support.v4.view.ViewPager
+        <cn.trinea.android.view.autoscrollviewpager.AutoScrollViewPager
             android:id="@+id/viewPagerHome"
             android:layout_width="match_parent"
             android:layout_height="200dp" />
@@ -22,9 +24,8 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal" />
 
-        </LinearLayout>
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView
@@ -32,4 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/layoutSlide" />
+
 </RelativeLayout>
+
+

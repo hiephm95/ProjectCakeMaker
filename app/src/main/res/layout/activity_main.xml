@@ -43,12 +43,12 @@
 
 
             <com.github.clans.fab.FloatingActionButton
-                android:id="@+id/fab1"
+                android:id="@+id/fabHome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ic_plus"
+                android:src="@mipmap/ic_home"
                 app:fab_colorNormal="@color/pink"
-                fab:fab_label="Menu item 1"
+                fab:fab_label="Home"
                 fab:fab_size="mini" />
 
             <com.github.clans.fab.FloatingActionButton

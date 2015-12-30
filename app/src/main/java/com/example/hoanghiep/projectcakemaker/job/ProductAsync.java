@@ -14,6 +14,7 @@ import android.view.animation.OvershootInterpolator;
 
 import com.example.hoanghiep.projectcakemaker.activity.DetailActivity;
 import com.example.hoanghiep.projectcakemaker.adapter.RecyclerViewAdapter;
+import com.example.hoanghiep.projectcakemaker.adapter.RecyclerViewHomeAdapter;
 import com.example.hoanghiep.projectcakemaker.model.Event;
 import com.example.hoanghiep.projectcakemaker.model.Product;
 import com.parse.ParseException;
@@ -56,7 +57,7 @@ public class ProductAsync extends AsyncTask<Void, Void, List<Product>> {
 
     @Override
     protected void onPostExecute(final List<Product> productList) {
-        adapter = new RecyclerViewAdapter(productList);
+        adapter = new RecyclerViewHomeAdapter(productList);
 
         //Setup Animation
         AlphaInAnimationAdapter alphaInAnimationAdapter = new AlphaInAnimationAdapter(adapter);
@@ -65,7 +66,7 @@ public class ProductAsync extends AsyncTask<Void, Void, List<Product>> {
         alphaInAnimationAdapter.setFirstOnly(false);
         recyclerView.setAdapter(new ScaleInAnimationAdapter(alphaInAnimationAdapter));
 
-        ((RecyclerViewAdapter) adapter).setOnItemClickListener(new RecyclerViewAdapter.MyClickListener() {
+        ((RecyclerViewHomeAdapter) adapter).setOnItemClickListener(new RecyclerViewHomeAdapter.MyClickListener() {
             @TargetApi(Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onItemClick(View view, int position) {
