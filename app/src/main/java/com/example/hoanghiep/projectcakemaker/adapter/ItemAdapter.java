@@ -64,8 +64,8 @@ public class ItemAdapter extends BaseAdapter {
                     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
                     @Override
                     public void onClick(View v) {
-                        view.setTransitionName("transitionImage");
-                        ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) parent.getContext(), view, view.getTransitionName());
+//                        view.setTransitionName("transitionImage");
+//                        ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) parent.getContext(), view, view.getTransitionName());
                         Intent i = new Intent(parent.getContext(), DetailActivity.class);
                         Bundle bundle = new Bundle();
                         bundle.putString("p_id", p.getObjectId());
@@ -75,7 +75,7 @@ public class ItemAdapter extends BaseAdapter {
                         bundle.putString("p_Description", p.getDescription());
                         i.putExtras(bundle);
 
-                        parent.getContext().startActivity(i, optionsCompat.toBundle());
+                        parent.getContext().startActivity(i);
                     }
                 });
 
