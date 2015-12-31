@@ -73,8 +73,8 @@ public class ProductByEventAsync extends AsyncTask<String, Void, List<Product>> 
             @TargetApi(Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onItemClick(View view, int position) {
-                view.setTransitionName("transitionImage");
-                ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context, view, view.getTransitionName());
+//                view.setTransitionName("transitionImage");
+//                ActivityOptionsCompat optionsCompat = ActivityOptionsCompat.makeSceneTransitionAnimation((Activity) context, view, view.getTransitionName());
                 Intent i = new Intent(context, DetailActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putString("p_id", productList.get(position).getObjectId());
@@ -83,7 +83,7 @@ public class ProductByEventAsync extends AsyncTask<String, Void, List<Product>> 
                 bundle.putDouble("p_Price", productList.get(position).getPrice());
                 bundle.putString("p_Description", productList.get(position).getDescription());
                 i.putExtras(bundle);
-                context.startActivity(i, optionsCompat.toBundle());
+                context.startActivity(i);
 
             }
         });

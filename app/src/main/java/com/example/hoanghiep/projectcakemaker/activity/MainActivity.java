@@ -1,7 +1,10 @@
 package com.example.hoanghiep.projectcakemaker.activity;
 
+import android.annotation.TargetApi;
+import android.app.ActivityOptions;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -103,6 +106,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void onClick(View v) {
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
@@ -117,7 +121,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.ivSearch:
                 Intent intentSearch = new Intent(getBaseContext(), SearchActivity.class);
-                startActivity(intentSearch);
+                Bundle slideanim = ActivityOptions.makeCustomAnimation(getApplicationContext(),R.anim.slide_up, R.anim.slide_down).toBundle();
+                startActivity(intentSearch,slideanim);
             case R.id.fabHome:
                 transaction.replace(R.id.main_frame, new HomeFragment());
                 transaction.commit();
