@@ -41,14 +41,14 @@ public class ProductByEventAsync extends AsyncTask<String, Void, List<Product>> 
     @Override
     protected List<Product> doInBackground(String... params) {
         ParseQuery<Event> query = ParseQuery.getQuery(Event.class);
+        query.fromLocalDatastore();
         try {
             for (Event e : query.find()) {
                 if (e.getName().equals(params[0])) {
-                    e.setProductList(e.getProductRelation().getQuery().find());
-                    for (Product p : e.getProductList()) {
-                        p.setPictureList(p.getPictureRelation().getQuery().find());
-
-                    }
+//                    e.setProductList(e.getProductRelation().getQuery().fromLocalDatastore().find());
+//                    for (Product p : e.getProductList()) {
+//                        p.setPictureList(p.getPictureRelation().getQuery().fromLocalDatastore().find());
+//                    }
                     return e.getProductRelation().getQuery().find();
                 }
             }

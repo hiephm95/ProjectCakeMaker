@@ -11,6 +11,7 @@ import com.example.hoanghiep.projectcakemaker.R;
 import com.example.hoanghiep.projectcakemaker.adapter.ItemAdapter;
 import com.example.hoanghiep.projectcakemaker.adapter.RecyclerViewAdapter;
 import com.example.hoanghiep.projectcakemaker.model.Event;
+import com.example.hoanghiep.projectcakemaker.model.Picture;
 import com.example.hoanghiep.projectcakemaker.model.Product;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
@@ -32,7 +33,7 @@ public class EventAsync extends AsyncTask<Void, Void, List<Event>> {
         progressDialog.setMessage("Please Wait...!");
         progressDialog.setIndeterminate(false);
         progressDialog.setCancelable(false);
-        progressDialog.show();
+        //progressDialog.show();
         Log.d("Status:", "Loading......");
     }
 
@@ -45,8 +46,9 @@ public class EventAsync extends AsyncTask<Void, Void, List<Event>> {
                 e.setProductList(e.getProductRelation().getQuery().find());
                 for (Product p : e.getProductList()) {
                     p.setPictureList(p.getPictureRelation().getQuery().find());
+                    Picture.pinAll(p.getPictureRelation().getQuery().find());
                 }
-
+                Product.pinAll(e.getProductRelation().getQuery().find());
             }
             Event.pinAll(query.find());
             return query.find();
@@ -59,9 +61,9 @@ public class EventAsync extends AsyncTask<Void, Void, List<Event>> {
 
     @Override
     protected void onPostExecute(List<Event> events) {
-        adapter = new ItemAdapter(events);
-        lsvItem.setAdapter(adapter);
-        lsvItem.setDivider(null);
+//        adapter = new ItemAdapter(events);
+//        lsvItem.setAdapter(adapter);
+//        lsvItem.setDivider(null);
         if (progressDialog.isShowing()) {
             progressDialog.dismiss();
         }

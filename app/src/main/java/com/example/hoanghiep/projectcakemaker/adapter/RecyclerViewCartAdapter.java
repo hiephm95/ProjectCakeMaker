@@ -48,6 +48,9 @@ public class RecyclerViewCartAdapter extends RecyclerView.Adapter<RecyclerViewCa
             @Override
             public void onClick(View v) {
                 removeItem(position);
+                for (Product p : myCart) {
+                    Cart.total += p.getPrice() * (p.quantity + 1);
+                }
                 CartActivity.cartTotal.setText("" + Cart.total);
             }
         });

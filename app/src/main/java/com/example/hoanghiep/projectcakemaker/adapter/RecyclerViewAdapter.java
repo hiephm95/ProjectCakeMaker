@@ -38,9 +38,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(MyViewHolder holder, int position) {
         holder.tvName.setText(products.get(position).getName());
         holder.tvPrice.setText(String.valueOf(products.get(position).getPrice()));
-        ImageLoader.getInstance().displayImage(products.get(position).getPicturesList().get(0).getFile().getUrl(), holder.ivProductMore);
 
-
+        if (!products.get(position).getPicturesList().isEmpty()) {
+            ImageLoader.getInstance().displayImage(products.get(position).getPicturesList().get(0).getFile().getUrl(), holder.ivProductMore);
+        }
     }
 
     @Override

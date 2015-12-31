@@ -10,21 +10,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.hoanghiep.projectcakemaker.R;
-import com.example.hoanghiep.projectcakemaker.fragment.CategoryFragment;
 import com.example.hoanghiep.projectcakemaker.fragment.EventFragment;
 import com.example.hoanghiep.projectcakemaker.fragment.HomeFragment;
 import com.example.hoanghiep.projectcakemaker.interfaces.ScreenChangeListener;
-import com.example.hoanghiep.projectcakemaker.model.Event;
-import com.example.hoanghiep.projectcakemaker.model.Order;
-import com.example.hoanghiep.projectcakemaker.model.Picture;
-import com.example.hoanghiep.projectcakemaker.model.Product;
+import com.example.hoanghiep.projectcakemaker.job.EventAsync;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.parse.Parse;
-import com.parse.ParseObject;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, ScreenChangeListener {
 
@@ -42,7 +36,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        initParse();
+        EventAsync eventAsync = new EventAsync(this);
+        eventAsync.execute();
 
         initProject();
 
@@ -65,16 +60,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(this).defaultDisplayImageOptions(defaultOptions).build();
         ImageLoader.getInstance().init(config);
     }
-
-    private void initParse() {
-        Parse.enableLocalDatastore(this);
-        ParseObject.registerSubclass(Product.class);
-        ParseObject.registerSubclass(Event.class);
-        ParseObject.registerSubclass(Picture.class);
-        ParseObject.registerSubclass(Order.class);
-        Parse.initialize(this, "l5OJy4F4rw3COKG6Jgc0VKNi7rFQzarUVLcjw4jA", "HCRpx0LQxTlvaBXDQ6BxeFsLnJqkGscA9xf1aq8Q");
-    }
-
 
     private void initViews() {
         ivCart = (ImageView) findViewById(R.id.ivCart);

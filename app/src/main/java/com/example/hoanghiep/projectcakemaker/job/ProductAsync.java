@@ -16,9 +16,11 @@ import com.example.hoanghiep.projectcakemaker.activity.DetailActivity;
 import com.example.hoanghiep.projectcakemaker.adapter.RecyclerViewAdapter;
 import com.example.hoanghiep.projectcakemaker.adapter.RecyclerViewHomeAdapter;
 import com.example.hoanghiep.projectcakemaker.model.Event;
+import com.example.hoanghiep.projectcakemaker.model.Picture;
 import com.example.hoanghiep.projectcakemaker.model.Product;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
+import com.parse.ParseRelation;
 
 import java.util.List;
 
@@ -43,11 +45,12 @@ public class ProductAsync extends AsyncTask<Void, Void, List<Product>> {
     @Override
     protected List<Product> doInBackground(Void... params) {
         ParseQuery<Product> query = ParseQuery.getQuery(Product.class);
+        query.fromLocalDatastore();
         try {
-            for (Product p : query.find()) {
-                p.setPictureList(p.getPictureRelation().getQuery().find());
-            }
-            Product.pinAll(query.find());
+//            for (Product p : query.find()) {
+//                p.setPictureList(p.getPictureRelation().getQuery().find());
+//            }
+//            Product.pinAll(query.find());
             return query.find();
         } catch (ParseException e) {
             e.printStackTrace();
