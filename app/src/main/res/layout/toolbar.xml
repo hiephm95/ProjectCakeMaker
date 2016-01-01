@@ -12,10 +12,10 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:layout_width="30dp"
+            android:id="@+id/actionLeft"
+            android:layout_width="25dp"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/logo" />
+            android:src="@mipmap/ic_menu" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -51,20 +51,13 @@
             android:layout_marginRight="16dp"
             android:src="@mipmap/ic_cart" />
 
-        <ImageView
-            android:id="@+id/ivEvent"
-            android:layout_width="22dp"
-            android:layout_height="65dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="50dp"
-            android:src="@mipmap/ic_event" />
 
         <ImageView
             android:id="@+id/ivSearch"
             android:layout_width="22dp"
             android:layout_height="65dp"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="85dp"
+            android:layout_marginRight="50dp"
             android:src="@mipmap/ic_search" />
 
     </RelativeLayout>

@@ -50,7 +50,7 @@ public class HomeFragment extends Fragment implements ViewPager.OnPageChangeList
             root = inflater.inflate(R.layout.fragment_home, container, false);
             recyclerView = (RecyclerView) root.findViewById(R.id.rvCake);
 //            final RelativeLayout relativeLayout = (RelativeLayout) root.findViewById(R.id.layoutHome);
-            recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
+            recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
             recyclerView.setHasFixedSize(true);
             initView();
             ProductAsync productAsync = new ProductAsync(getActivity());

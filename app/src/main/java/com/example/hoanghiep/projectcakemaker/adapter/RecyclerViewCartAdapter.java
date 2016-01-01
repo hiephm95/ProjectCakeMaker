@@ -121,5 +121,6 @@ public class RecyclerViewCartAdapter extends RecyclerView.Adapter<RecyclerViewCa
     public void removeItem(int position) {
         myCart.remove(position);
         notifyItemRemoved(position);
+        notifyItemRangeChanged(position,myCart.size());
     }
 }

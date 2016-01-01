@@ -1,7 +1,9 @@
 package com.example.hoanghiep.projectcakemaker.activity;
 
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,15 +19,18 @@ public class CakeActivityItem extends AppCompatActivity implements View.OnClickL
 
     ImageView actionLeft2;
     TextView tvWeddingTitle;
+    FloatingActionButton fabEvent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cake_one);
         actionLeft2 = (ImageView) findViewById(R.id.actionLeft2);
+        fabEvent = (FloatingActionButton) findViewById(R.id.fabEvent);
         tvWeddingTitle = (TextView) findViewById(R.id.tv_wedding_title);
         Bundle bundle = getIntent().getExtras();
         tvWeddingTitle.setText(bundle.getString("event"));
         actionLeft2.setOnClickListener(this);
+        fabEvent.setOnClickListener(this);
         initProject();
     }
 
@@ -41,6 +46,16 @@ public class CakeActivityItem extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
-        finish();
+        switch (v.getId()) {
+            case R.id.actionLeft2:
+                finish();
+                break;
+            case R.id.fabEvent:
+                Intent intentEvent = new Intent(getBaseContext(), EventActivity.class);
+                startActivity(intentEvent);
+                break;
+
+        }
+
     }
 }
