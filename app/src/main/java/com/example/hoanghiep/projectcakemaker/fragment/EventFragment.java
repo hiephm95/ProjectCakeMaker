@@ -45,27 +45,6 @@ public class EventFragment extends Fragment {
             eventLocalAsync.adapter = adapter;
             eventLocalAsync.lsvItem = lsvItem;
             eventLocalAsync.execute();
-//
-//            ParseQuery<Event> query = ParseQuery.getQuery(Event.class);
-//            query.fromLocalDatastore();
-//            query.findInBackground(new FindCallback<Event>() {
-//                @Override
-//                public void done(List<Event> objects, ParseException e) {
-//                    if (e == null) {
-//                        adapter = new ItemAdapter(objects);
-//                        lsvItem.setAdapter(adapter);
-//                    } else {
-//                        Log.d("Error:", e.toString());
-//                    }
-//                }
-//            });
-
-//            EventAsync eventAsync = new EventAsync(getActivity());
-//            eventAsync.adapter = adapter;
-//            eventAsync.lsvItem = lsvItem;
-//            eventAsync.execute();
-
-
         }
         return root;
     }
