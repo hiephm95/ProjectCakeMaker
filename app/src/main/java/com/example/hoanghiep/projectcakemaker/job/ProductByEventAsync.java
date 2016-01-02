@@ -45,10 +45,6 @@ public class ProductByEventAsync extends AsyncTask<String, Void, List<Product>> 
         try {
             for (Event e : query.find()) {
                 if (e.getName().equals(params[0])) {
-//                    e.setProductList(e.getProductRelation().getQuery().fromLocalDatastore().find());
-//                    for (Product p : e.getProductList()) {
-//                        p.setPictureList(p.getPictureRelation().getQuery().fromLocalDatastore().find());
-//                    }
                     return e.getProductRelation().getQuery().find();
                 }
             }

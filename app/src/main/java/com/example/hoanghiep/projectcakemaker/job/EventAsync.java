@@ -22,7 +22,6 @@ public class EventAsync extends AsyncTask<Void, Void, List<Event>> {
 
     public ProgressDialog progressDialog;
     public ItemAdapter adapter;
-    public ListView lsvItem;
 
     public EventAsync(Context context) {
         progressDialog = new ProgressDialog(context);
@@ -33,37 +32,64 @@ public class EventAsync extends AsyncTask<Void, Void, List<Event>> {
         progressDialog.setMessage("Please Wait...!");
         progressDialog.setIndeterminate(false);
         progressDialog.setCancelable(false);
-        //progressDialog.show();
+        progressDialog.show();
         Log.d("Status:", "Loading......");
     }
 
 
     @Override
     protected List<Event> doInBackground(Void... params) {
+        ParseQuery<Event> queryFromLocal = ParseQuery.getQuery(Event.class);
         ParseQuery<Event> query = ParseQuery.getQuery(Event.class);
+
+        queryFromLocal.fromLocalDatastore();
         try {
-            for (Event e : query.find()) {
-                e.setProductList(e.getProductRelation().getQuery().find());
-                for (Product p : e.getProductList()) {
-                    p.setPictureList(p.getPictureRelation().getQuery().find());
-                    Picture.pinAll(p.getPictureRelation().getQuery().find());
+            if (queryFromLocal.find().size() != 0 && queryFromLocal.find().size() == query.find().size()) {
+                for (Event e : queryFromLocal.find()) {
+                    e.setProductList(e.getProductRelation().getQuery().fromLocalDatastore().find());
+                    for (Product p : e.getProductList()) {
+                        p.setPictureList(p.getPictureRelation().getQuery().fromLocalDatastore().find());
+                    }
                 }
-                Product.pinAll(e.getProductRelation().getQuery().find());
+                return queryFromLocal.find();
+            } else {
+                for (Event e : query.find()) {
+                    e.setProductList(e.getProductRelation().getQuery().find());
+                    for (Product p : e.getProductList()) {
+                        p.setPictureList(p.getPictureRelation().getQuery().find());
+                        Picture.pinAll(p.getPictureRelation().getQuery().find());
+                    }
+                    Product.pinAll(e.getProductRelation().getQuery().find());
+                }
+                Event.pinAll(query.find());
+                return query.find();
             }
-            Event.pinAll(query.find());
-            return query.find();
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
+
+//        ParseQuery<Event> query = ParseQuery.getQuery(Event.class);
+//        try {
+//            for (Event e : query.find()) {
+//                e.setProductList(e.getProductRelation().getQuery().find());
+//                for (Product p : e.getProductList()) {
+//                    p.setPictureList(p.getPictureRelation().getQuery().find());
+//                    Picture.pinAll(p.getPictureRelation().getQuery().find());
+//                }
+//                Product.pinAll(e.getProductRelation().getQuery().find());
+//            }
+//            Event.pinAll(query.find());
+//            return query.find();
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
 
         return null;
     }
 
     @Override
     protected void onPostExecute(List<Event> events) {
-//        adapter = new ItemAdapter(events);
-//        lsvItem.setAdapter(adapter);
-//        lsvItem.setDivider(null);
         if (progressDialog.isShowing()) {
             progressDialog.dismiss();
         }

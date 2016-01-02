@@ -40,11 +40,8 @@ public class EventLocalAsync extends AsyncTask<Void, Void, List<Event>> {
         ParseQuery<Event> query = ParseQuery.getQuery(Event.class);
         query.fromLocalDatastore();
         try {
-//            for (Event e : query.find()) {
-//                e.setProductList(e.getProductRelation().getQuery().fromLocalDatastore().find());
-//                for (Product p : e.getProductList()) {
-//                    p.setPictureList(p.getPictureRelation().getQuery().fromLocalDatastore().find());
-//                }
+//            for (:) {
+//
 //            }
             return query.find();
         } catch (ParseException e) {
