@@ -15,7 +15,6 @@ import org.json.JSONObject;
 
 import java.util.List;
 import java.util.Properties;
-import java.util.concurrent.ExecutionException;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -50,6 +49,7 @@ public class SubmitOrderAsync extends AsyncTask<Void, Void, String> {
 
     @Override
     protected String doInBackground(Void... params) {
+
         String productOfOrder = "";
 
         for (Product p : Cart.list) {
@@ -62,7 +62,7 @@ public class SubmitOrderAsync extends AsyncTask<Void, Void, String> {
 
                 for (Product product : products) {
                     if (p.getObjectId() == product.getObjectId()) {
-                        productOfOrder = productOfOrder + "\n" + product.getName();
+                        productOfOrder = productOfOrder + "\n" + product.getName() + " " + (product.quantity + 1);
                     }
                 }
 
@@ -74,8 +74,8 @@ public class SubmitOrderAsync extends AsyncTask<Void, Void, String> {
         order.put("products", productJsonArray);
         order.saveInBackground();
 
-        subject = "";
-        content = "" + productOfOrder + "\n" + order.getTotal();
+        subject = "Bill Cakes";
+        content = "You Have Successfully Ordered " + "\n" + "Cakes: " + productOfOrder + "\n" + "Total: " + order.getTotal() + " $";
 
         try {
             send(order.getEmail(), subject, content);
@@ -97,8 +97,8 @@ public class SubmitOrderAsync extends AsyncTask<Void, Void, String> {
 
 
     public static void send(String to, String subject, String content) throws MessagingException {
-        String username = "hiephm95@gmail.com";
-        String password = "phanthanhtung94";
+        String username = "cakemakerfpt@gmail.com";
+        String password = "cake123456789";
 
         Properties p = System.getProperties();
         String host = "smtp.gmail.com";

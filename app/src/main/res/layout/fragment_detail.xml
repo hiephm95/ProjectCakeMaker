@@ -98,27 +98,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-                <com.rey.material.widget.RadioButton
+                <RadioButton
                     android:id="@+id/rbEggLess"
                     style="@style/Material.Drawable.RadioButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/spinQuantity"
                     android:layout_marginLeft="115dp"
-                    android:layout_marginTop="1dp"
-                    android:button="@color/pink"
-                    app:rbd_strokeColor="@color/pink" />
+                    android:layout_marginTop="1dp" />
 
 
-                <com.rey.material.widget.RadioButton
+                <RadioButton
                     android:id="@+id/rbEggWith"
                     style="@style/Material.Drawable.RadioButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/tvEggLess"
                     android:layout_marginLeft="115dp"
-                    android:layout_marginTop="1dp"
-                    app:rbd_strokeColor="@color/pink" />
+                    android:layout_marginTop="1dp" />
             </RadioGroup>
         </RelativeLayout>
 

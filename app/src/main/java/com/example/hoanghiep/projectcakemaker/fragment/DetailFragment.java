@@ -1,33 +1,24 @@
 package com.example.hoanghiep.projectcakemaker.fragment;
 
 
-import android.app.Activity;
 import android.app.Fragment;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.hoanghiep.projectcakemaker.R;
-import com.example.hoanghiep.projectcakemaker.activity.CartActivity;
-import com.example.hoanghiep.projectcakemaker.activity.DetailActivity;
-import com.example.hoanghiep.projectcakemaker.activity.OrderActivity;
 import com.example.hoanghiep.projectcakemaker.model.Cart;
 import com.example.hoanghiep.projectcakemaker.model.Product;
 import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
-import com.rey.material.widget.RadioButton;
-
-import org.w3c.dom.Text;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -84,7 +75,7 @@ public class DetailFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        boolean checked = ((RadioButton)v).isChecked();
+//        boolean checked = ((RadioButton)v).isChecked();
         switch (v.getId()) {
             case R.id.btnCart:
                 final Bundle bundle = this.getArguments();
@@ -103,10 +94,8 @@ public class DetailFragment extends Fragment implements View.OnClickListener {
                 });
                 break;
             case R.id.rbEggLess:
-                if (checked)
                 break;
             case R.id.rbEggWith:
-                if (checked)
                 break;
         }
 
