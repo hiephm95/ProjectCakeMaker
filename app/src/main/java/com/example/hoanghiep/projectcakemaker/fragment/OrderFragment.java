@@ -3,9 +3,8 @@ package com.example.hoanghiep.projectcakemaker.fragment;
 
 import android.app.DatePickerDialog;
 import android.app.Fragment;
-import android.app.FragmentTransaction;
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.multidex.MultiDex;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +13,16 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 
 import com.example.hoanghiep.projectcakemaker.R;
+import com.example.hoanghiep.projectcakemaker.job.ProductAsync;
+import com.example.hoanghiep.projectcakemaker.job.ShowProductAsync;
 import com.example.hoanghiep.projectcakemaker.job.SubmitOrderAsync;
 import com.example.hoanghiep.projectcakemaker.model.Cart;
 import com.example.hoanghiep.projectcakemaker.model.Order;
+import com.example.hoanghiep.projectcakemaker.model.Product;
 
 import java.util.Calendar;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -41,12 +45,15 @@ public class OrderFragment extends Fragment implements View.OnClickListener {
     Button btnOrderSubmit;
 
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         if (root == null) {
             root = inflater.inflate(R.layout.fragment_order, container, false);
+            MultiDex.install(getActivity());
             initView();
         }
         return root;
@@ -75,7 +82,16 @@ public class OrderFragment extends Fragment implements View.OnClickListener {
                 new DatePickerDialog(getActivity(), listener, year, month, day).show();
                 break;
             case R.id.btnOrderSubmit:
-                SubmitOrderAsync async = new SubmitOrderAsync(getActivity());
+                List<Product> productList = null;
+                try {
+                    productList = new ShowProductAsync().execute().get();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                }
+
+                SubmitOrderAsync async = new SubmitOrderAsync(getActivity(), productList);
                 Order order = new Order();
                 async.order = order;
                 order.setName(etOrderName.getText().toString());
