@@ -40,9 +40,6 @@ public class EventLocalAsync extends AsyncTask<Void, Void, List<Event>> {
         ParseQuery<Event> query = ParseQuery.getQuery(Event.class);
         query.fromLocalDatastore();
         try {
-//            for (:) {
-//
-//            }
             return query.find();
         } catch (ParseException e) {
             e.printStackTrace();

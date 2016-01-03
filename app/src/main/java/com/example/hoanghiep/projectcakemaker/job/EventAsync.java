@@ -46,9 +46,9 @@ public class EventAsync extends AsyncTask<Void, Void, List<Event>> {
         try {
             if (queryFromLocal.find().size() != 0 && queryFromLocal.find().size() == query.find().size()) {
                 for (Event e : queryFromLocal.find()) {
-                    e.setProductList(e.getProductRelation().getQuery().fromLocalDatastore().find());
+                    e.setProductList(e.getProductRelation().getQuery().find());
                     for (Product p : e.getProductList()) {
-                        p.setPictureList(p.getPictureRelation().getQuery().fromLocalDatastore().find());
+                        p.setPictureList(p.getPictureRelation().getQuery().find());
                     }
                 }
                 return queryFromLocal.find();
@@ -67,24 +67,6 @@ public class EventAsync extends AsyncTask<Void, Void, List<Event>> {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-
-
-//        ParseQuery<Event> query = ParseQuery.getQuery(Event.class);
-//        try {
-//            for (Event e : query.find()) {
-//                e.setProductList(e.getProductRelation().getQuery().find());
-//                for (Product p : e.getProductList()) {
-//                    p.setPictureList(p.getPictureRelation().getQuery().find());
-//                    Picture.pinAll(p.getPictureRelation().getQuery().find());
-//                }
-//                Product.pinAll(e.getProductRelation().getQuery().find());
-//            }
-//            Event.pinAll(query.find());
-//            return query.find();
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
-
         return null;
     }
 
