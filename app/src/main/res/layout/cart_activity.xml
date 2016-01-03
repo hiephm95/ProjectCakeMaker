@@ -48,16 +48,14 @@
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/tvOrder"
-                android:layout_width="wrap_content"
+            <ImageView
+                android:id="@+id/ivOrder"
+                android:layout_width="45dp"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:layout_alignParentRight="true"
-                android:text="Order"
-                android:paddingRight="16dp"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:src="@mipmap/ic_order"
+                android:paddingRight="16dp"/>
 
         </RelativeLayout>
 

@@ -5,6 +5,7 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.transition.TransitionInflater;
 import android.view.View;
@@ -18,7 +19,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 public class DetailActivity extends AppCompatActivity implements View.OnClickListener{
     ImageView actionLeft3;
     ImageView ivProductDetails;
-    ImageView ivCart;
+    FloatingActionButton fabCart;
     TransitionInflater transitionInflater;
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -48,8 +49,8 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     private void initView() {
         actionLeft3 = (ImageView) findViewById(R.id.actionLeft3);
         ivProductDetails = (ImageView) findViewById(R.id.ivProductDetails);
-        ivCart = (ImageView) findViewById(R.id.ivCartDetail);
-        ivCart.setOnClickListener(this);
+        fabCart = (FloatingActionButton) findViewById(R.id.fabCart);
+        fabCart.setOnClickListener(this);
 
         Bundle b = getIntent().getExtras();
         ImageLoader.getInstance().displayImage(b.getString("p_Avatar"), ivProductDetails);

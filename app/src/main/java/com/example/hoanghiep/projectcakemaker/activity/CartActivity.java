@@ -18,7 +18,7 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
 
 
     ImageView acitonBack;
-    TextView tvOrder;
+    ImageView ivOrder;
     public static TextView cartTotal;
 
 
@@ -28,10 +28,10 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.cart_activity);
 
         acitonBack = (ImageView) findViewById(R.id.actionBack);
-        tvOrder = (TextView) findViewById(R.id.tvOrder);
+        ivOrder = (ImageView) findViewById(R.id.ivOrder);
         cartTotal = (TextView) findViewById(R.id.cartTotal);
 
-        tvOrder.setOnClickListener(this);
+        ivOrder.setOnClickListener(this);
         acitonBack.setOnClickListener(this);
         initCart();
     }
@@ -45,7 +45,7 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.tvOrder:
+            case R.id.ivOrder:
                 Intent i = new Intent(getBaseContext(), OrderActivity.class);
                 startActivity(i);
                 break;

@@ -25,6 +25,7 @@ import com.example.hoanghiep.projectcakemaker.model.Product;
 import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
+import com.rey.material.widget.RadioButton;
 
 import org.w3c.dom.Text;
 
@@ -37,6 +38,8 @@ public class DetailFragment extends Fragment implements View.OnClickListener {
     TextView tvDetailDescription;
     Button btnCart;
     Spinner spinQuantity;
+    RadioButton rbEggLess,rbEggWith;
+
 
     public DetailFragment() {
         // Required empty public constructor
@@ -56,6 +59,8 @@ public class DetailFragment extends Fragment implements View.OnClickListener {
     }
 
     private void initView() {
+        rbEggLess = (RadioButton) root.findViewById(R.id.rbEggLess);
+        rbEggWith = (RadioButton) root.findViewById(R.id.rbEggWith);
         tvDetailName = (TextView) root.findViewById(R.id.tvDetailName);
         tvDetailPrice = (TextView) root.findViewById(R.id.tvDetailPrice);
         tvDetailDescription = (TextView) root.findViewById(R.id.tvDetailDescription);
@@ -79,19 +84,31 @@ public class DetailFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        final Bundle bundle = this.getArguments();
-        ParseQuery<Product> query = ParseQuery.getQuery(Product.class);
-        query.fromLocalDatastore();
-        query.getInBackground(bundle.getString("p_id"), new GetCallback<Product>() {
-            @Override
-            public void done(Product object, ParseException e) {
-                if (e == null) {
-                    object.quantity = spinQuantity.getSelectedItemPosition();
-                    Cart.list.add(object);
-                } else {
-                    Log.d("Error:", e.toString());
-                }
-            }
-        });
+        boolean checked = ((RadioButton)v).isChecked();
+        switch (v.getId()) {
+            case R.id.btnCart:
+                final Bundle bundle = this.getArguments();
+                ParseQuery<Product> query = ParseQuery.getQuery(Product.class);
+                query.fromLocalDatastore();
+                query.getInBackground(bundle.getString("p_id"), new GetCallback<Product>() {
+                    @Override
+                    public void done(Product object, ParseException e) {
+                        if (e == null) {
+                            object.quantity = spinQuantity.getSelectedItemPosition();
+                            Cart.list.add(object);
+                        } else {
+                            Log.d("Error:", e.toString());
+                        }
+                    }
+                });
+                break;
+            case R.id.rbEggLess:
+                if (checked)
+                break;
+            case R.id.rbEggWith:
+                if (checked)
+                break;
+        }
+
     }
 }
