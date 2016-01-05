@@ -14,6 +14,7 @@ import java.util.List;
 public class Product extends ParseObject{
     public List<Picture> picturesList;
     public int quantity;
+    public boolean eggLess;
 
     public Product() {
         picturesList = new ArrayList<>();
@@ -102,4 +103,18 @@ public class Product extends ParseObject{
         query.findInBackground(callback);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Product product = (Product) o;
+
+        return this.getObjectId().equals(product.getObjectId());
+    }
+
+    @Override
+    public int hashCode() {
+        return this.getObjectId().hashCode();
+    }
 }

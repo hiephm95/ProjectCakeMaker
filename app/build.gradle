@@ -20,7 +20,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
@@ -41,10 +41,11 @@ dependencies {
     compile 'com.github.traex.rippleeffect:library:1.3'
     compile 'com.github.nirhart:parallaxscroll:1.0'
     compile 'com.android.support:multidex:1.0.0'
-    compile ('cn.trinea.android.view.autoscrollviewpager:android-auto-scroll-view-pager:1.1.2') {
+    compile('cn.trinea.android.view.autoscrollviewpager:android-auto-scroll-view-pager:1.1.2') {
         exclude module: 'support-v4'
     }
     androidTestCompile('com.android.support:multidex-instrumentation:1.0.1') {
         exclude group: 'com.android.support', module: 'multidex'
     }
+    compile files('libs/mail.jar')
 }

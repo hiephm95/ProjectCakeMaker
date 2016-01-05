@@ -58,11 +58,12 @@ public class SubmitOrderAsync extends AsyncTask<Void, Void, String> {
                 JSONObject productJson = new JSONObject();
                 productJson.put("id", p.getObjectId());
                 productJson.put("quantity", p.quantity + 1);
+                productJson.put("eggLess", p.eggLess);
                 productJsonArray.put(productJson);
 
                 for (Product product : products) {
                     if (p.getObjectId() == product.getObjectId()) {
-                        productOfOrder = productOfOrder + "\n" + product.getName() + " " + (product.quantity + 1);
+                        productOfOrder = productOfOrder + "\n" + product.getName() + " " + (product.quantity + 1) + " Eggless:" + product.eggLess;
                     }
                 }
 

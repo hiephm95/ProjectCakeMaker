@@ -29,7 +29,7 @@ public class DetailFragment extends Fragment implements View.OnClickListener {
     TextView tvDetailDescription;
     Button btnCart;
     Spinner spinQuantity;
-    RadioButton rbEggLess,rbEggWith;
+    RadioButton rbEggLess, rbEggWith;
 
 
     public DetailFragment() {
@@ -81,12 +81,20 @@ public class DetailFragment extends Fragment implements View.OnClickListener {
                 final Bundle bundle = this.getArguments();
                 ParseQuery<Product> query = ParseQuery.getQuery(Product.class);
                 query.fromLocalDatastore();
+
                 query.getInBackground(bundle.getString("p_id"), new GetCallback<Product>() {
                     @Override
                     public void done(Product object, ParseException e) {
                         if (e == null) {
+                            if(rbEggLess.isChecked())
+                            {
+                                object.eggLess = true;
+                            }else
+                            {
+                                object.eggLess = false;
+                            }
                             object.quantity = spinQuantity.getSelectedItemPosition();
-                            Cart.list.add(object);
+                            Cart.addProduct(object);
                         } else {
                             Log.d("Error:", e.toString());
                         }
