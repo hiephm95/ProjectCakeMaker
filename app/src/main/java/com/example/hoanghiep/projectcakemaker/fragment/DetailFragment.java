@@ -2,11 +2,14 @@ package com.example.hoanghiep.projectcakemaker.fragment;
 
 
 import android.app.Fragment;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -20,31 +23,39 @@ import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 
+import java.util.List;
+
 /**
  * A simple {@link Fragment} subclass.
  */
-public class DetailFragment extends Fragment implements View.OnClickListener {
+public class DetailFragment extends Fragment implements View.OnClickListener{
+    public TextView tvCartItem;
     TextView tvDetailName;
     TextView tvDetailPrice;
     TextView tvDetailDescription;
     Button btnCart;
     Spinner spinQuantity;
     RadioButton rbEggLess, rbEggWith;
-
+    List<Product> products;
 
     public DetailFragment() {
         // Required empty public constructor
     }
 
     View root;
+    Bundle bundle;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         if (root == null) {
             root = inflater.inflate(R.layout.fragment_detail, container, false);
+            bundle = this.getArguments();
             initView();
+
         }
         return root;
     }
@@ -58,7 +69,25 @@ public class DetailFragment extends Fragment implements View.OnClickListener {
         spinQuantity = (Spinner) root.findViewById(R.id.spinQuantity);
         btnCart = (Button) root.findViewById(R.id.btnCart);
         btnCart.setOnClickListener(this);
+        spinQuantity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Cart.total = Double.parseDouble(parent.getItemAtPosition(position).toString()) * bundle.getDouble("p_Price");
+                tvDetailPrice.setText(String.valueOf(Cart.total) + " $");
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        setupSpinner();
+
+
+    }
+
+    public void setupSpinner() {
         String[] arraySpinner = new String[]
                 {
                         "1", "2", "3", "4", "5", "6"
@@ -67,15 +96,14 @@ public class DetailFragment extends Fragment implements View.OnClickListener {
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, arraySpinner);
         spinQuantity.setAdapter(adapter);
 
-        Bundle bundle = this.getArguments();
+
         tvDetailName.setText(bundle.getString("p_Name"));
         tvDetailPrice.setText(bundle.getDouble("p_Price") + " $");
         tvDetailDescription.setText(bundle.getString("p_Description"));
     }
-
     @Override
     public void onClick(View v) {
-//        boolean checked = ((RadioButton)v).isChecked();
+
         switch (v.getId()) {
             case R.id.btnCart:
                 final Bundle bundle = this.getArguments();
@@ -86,6 +114,10 @@ public class DetailFragment extends Fragment implements View.OnClickListener {
                     @Override
                     public void done(Product object, ParseException e) {
                         if (e == null) {
+
+                            //SharedPreferences sharedPreferences1 = getActivity().getSharedPreferences("Card", Context.MODE_PRIVATE);
+                            //int size = sharedPreferences1.getInt("size", 0);
+
                             if(rbEggLess.isChecked())
                             {
                                 object.eggLess = true;
@@ -95,6 +127,14 @@ public class DetailFragment extends Fragment implements View.OnClickListener {
                             }
                             object.quantity = spinQuantity.getSelectedItemPosition();
                             Cart.addProduct(object);
+                            tvCartItem.setText(String.valueOf(Cart.list.size()));
+                            tvCartItem.setVisibility(View.VISIBLE);
+
+                            SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Card", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            //editor.putInt("size", Cart.list.size());
+                            editor.putBoolean("visible", true);
+                            editor.commit();
                         } else {
                             Log.d("Error:", e.toString());
                         }
@@ -108,4 +148,5 @@ public class DetailFragment extends Fragment implements View.OnClickListener {
         }
 
     }
+
 }

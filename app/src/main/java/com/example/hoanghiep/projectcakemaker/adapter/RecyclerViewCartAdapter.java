@@ -39,7 +39,7 @@ public class RecyclerViewCartAdapter extends RecyclerView.Adapter<RecyclerViewCa
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolderCart holder, final int position) {
+    public void onBindViewHolder(final MyViewHolderCart holder, final int position) {
         holder.tvNameCart.setText(myCart.get(position).getName());
         holder.tvPriceCart.setText(String.valueOf(myCart.get(position).getPrice()));
         ImageLoader.getInstance().displayImage(myCart.get(position).getPicturesList().get(0).getFile().getUrl(), holder.ivCartPicture);
@@ -52,7 +52,8 @@ public class RecyclerViewCartAdapter extends RecyclerView.Adapter<RecyclerViewCa
                 for (Product p : myCart) {
                     Cart.total += p.getPrice() * (p.quantity + 1);
                 }
-                CartActivity.cartTotal.setText("" + Cart.total);
+                CartActivity.cartTotal.setText(String.valueOf(Cart.total) + " $");
+                holder.tvPriceCart.setText(String.valueOf(Cart.total) + " $");
             }
         });
 
@@ -64,7 +65,8 @@ public class RecyclerViewCartAdapter extends RecyclerView.Adapter<RecyclerViewCa
                 for (Product p : myCart) {
                     Cart.total += p.getPrice() * (p.quantity + 1);
                 }
-                CartActivity.cartTotal.setText("" + Cart.total);
+                CartActivity.cartTotal.setText(String.valueOf(Cart.total) + " $");
+                holder.tvPriceCart.setText(String.valueOf(Cart.total) + " $");
             }
 
             @Override

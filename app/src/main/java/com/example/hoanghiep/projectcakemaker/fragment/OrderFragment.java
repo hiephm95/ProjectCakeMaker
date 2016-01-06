@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.hoanghiep.projectcakemaker.R;
 import com.example.hoanghiep.projectcakemaker.job.ProductAsync;
@@ -35,7 +37,7 @@ public class OrderFragment extends Fragment implements View.OnClickListener {
     }
 
     View root;
-    EditText etOrderDeliveryDate;
+    TextView tvOrderDeliveryDate;
     Calendar calendar = Calendar.getInstance();
     EditText etOrderName;
     EditText etOrderAddress;
@@ -43,7 +45,7 @@ public class OrderFragment extends Fragment implements View.OnClickListener {
     EditText etOrderEmail;
     EditText etOrderTotal;
     Button btnOrderSubmit;
-
+    ImageView ivDate;
 
 
 
@@ -65,17 +67,18 @@ public class OrderFragment extends Fragment implements View.OnClickListener {
         etOrderPhone = (EditText) root.findViewById(R.id.etOrderPhone);
         etOrderEmail = (EditText) root.findViewById(R.id.etOrderEmail);
         etOrderTotal = (EditText) root.findViewById(R.id.etOrderTotal);
-        etOrderTotal.setText("" + Cart.total);
+        etOrderTotal.setText(String.valueOf(Cart.total) + " $");
         btnOrderSubmit = (Button) root.findViewById(R.id.btnOrderSubmit);
+        ivDate = (ImageView) root.findViewById(R.id.ivDate);
         btnOrderSubmit.setOnClickListener(this);
-        etOrderDeliveryDate = (EditText) root.findViewById(R.id.etOrderDeliveryDate);
-        etOrderDeliveryDate.setOnClickListener(this);
+        tvOrderDeliveryDate = (TextView) root.findViewById(R.id.tvOrderDeliveryDate);
+        ivDate.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.etOrderDeliveryDate:
+            case R.id.ivDate:
                 int year = calendar.get(Calendar.YEAR);
                 int month = calendar.get(Calendar.MONTH);
                 int day = calendar.get(Calendar.DAY_OF_MONTH);
@@ -99,7 +102,7 @@ public class OrderFragment extends Fragment implements View.OnClickListener {
                 order.setPhone(etOrderPhone.getText().toString());
                 order.setTotal(Double.valueOf(etOrderTotal.getText().toString()));
                 order.setEmail(etOrderEmail.getText().toString());
-                order.setDeliveryDate(etOrderDeliveryDate.getText().toString());
+                order.setDeliveryDate(tvOrderDeliveryDate.getText().toString());
                 async.execute();
                 break;
         }
@@ -109,7 +112,7 @@ public class OrderFragment extends Fragment implements View.OnClickListener {
     DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener() {
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-            etOrderDeliveryDate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+            tvOrderDeliveryDate.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
         }
     };
 }

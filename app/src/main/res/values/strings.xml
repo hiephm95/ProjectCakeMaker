@@ -4,7 +4,9 @@
     <string name="title_activity_wizard">WizardActivity</string>
     <string name="next_wizard">Next</string>
     <string name="skip">Skip</string>
-    <string name="customerInfo">Customer Information</string>
+    <string name="customerInfo">Information</string>
+    <string name="contact">Fill in the form below to send us message</string>
+    <string name="order">Fill in the form your information</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

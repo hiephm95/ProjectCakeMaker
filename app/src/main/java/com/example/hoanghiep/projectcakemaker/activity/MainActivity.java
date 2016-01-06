@@ -3,7 +3,9 @@ package com.example.hoanghiep.projectcakemaker.activity;
 import android.annotation.TargetApi;
 import android.app.ActivityOptions;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -11,6 +13,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -20,10 +23,12 @@ import android.widget.TextView;
 
 import com.example.hoanghiep.projectcakemaker.R;
 import com.example.hoanghiep.projectcakemaker.adapter.MenuAdapter;
+import com.example.hoanghiep.projectcakemaker.fragment.ContactFragment;
 import com.example.hoanghiep.projectcakemaker.fragment.EventFragment;
 import com.example.hoanghiep.projectcakemaker.fragment.HomeFragment;
 import com.example.hoanghiep.projectcakemaker.interfaces.ScreenChangeListener;
 import com.example.hoanghiep.projectcakemaker.job.EventAsync;
+import com.example.hoanghiep.projectcakemaker.model.Cart;
 import com.example.hoanghiep.projectcakemaker.model.Screen;
 import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
@@ -39,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ImageView ivCart;
     ImageView ivSearch;
     TextView tvTitle;
+    TextView tvItemCart;
     Toolbar toolbar;
     ListView lsvMenu;
     RelativeLayout rlLeftDrawer;
@@ -152,6 +158,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         transaction.replace(R.id.main_frame, new EventFragment());
                         transaction.commit();
                         break;
+                    case Screen.CONTACT_US:
+                        transaction.replace(R.id.main_frame, new ContactFragment());
+                        transaction.commit();
+                        break;
                     case Screen.CART:
                         Intent intentCart = new Intent(getBaseContext(), CartActivity.class);
                         startActivity(intentCart);
@@ -193,5 +203,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 
+    }
+
+    @Override
+    protected void onStop() {
+
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        SharedPreferences sharedPreferences = getSharedPreferences("Card", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        //editor.putInt("size", 0);
+        editor.putBoolean("visible", false);
+        Log.i("TEST", "Stop");
+        editor.commit();
+        super.onDestroy();
     }
 }
