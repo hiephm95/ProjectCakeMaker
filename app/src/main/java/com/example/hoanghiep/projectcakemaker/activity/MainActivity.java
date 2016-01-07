@@ -30,8 +30,6 @@ import com.example.hoanghiep.projectcakemaker.interfaces.ScreenChangeListener;
 import com.example.hoanghiep.projectcakemaker.job.EventAsync;
 import com.example.hoanghiep.projectcakemaker.model.Cart;
 import com.example.hoanghiep.projectcakemaker.model.Screen;
-import com.github.clans.fab.FloatingActionButton;
-import com.github.clans.fab.FloatingActionMenu;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -44,12 +42,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ImageView ivCart;
     ImageView ivSearch;
     TextView tvTitle;
-    TextView tvItemCart;
+    public static TextView tvItemCartMain;
     Toolbar toolbar;
     ListView lsvMenu;
     RelativeLayout rlLeftDrawer;
     DrawerLayout dlLayout;
     ImageView vActionLeft;
+
 
     ActionBarDrawerToggle mDrawerToggle;
 
@@ -98,7 +97,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         rlLeftDrawer = (RelativeLayout) findViewById(R.id.left_drawer);
         dlLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
         vActionLeft = (ImageView) findViewById(R.id.actionLeft);
-
+        tvItemCartMain = (TextView) findViewById(R.id.tvItemCartMain);
+        tvItemCartMain.setText(String.valueOf(Cart.list.size()));
         ivCart.setOnClickListener(this);
         ivSearch.setOnClickListener(this);
         vActionLeft.setOnClickListener(this);

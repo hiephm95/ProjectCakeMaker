@@ -2,8 +2,6 @@ package com.example.hoanghiep.projectcakemaker.fragment;
 
 
 import android.app.Fragment;
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -129,12 +127,6 @@ public class DetailFragment extends Fragment implements View.OnClickListener{
                             Cart.addProduct(object);
                             tvCartItem.setText(String.valueOf(Cart.list.size()));
                             tvCartItem.setVisibility(View.VISIBLE);
-
-                            SharedPreferences sharedPreferences = getActivity().getSharedPreferences("Card", Context.MODE_PRIVATE);
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            //editor.putInt("size", Cart.list.size());
-                            editor.putBoolean("visible", true);
-                            editor.commit();
                         } else {
                             Log.d("Error:", e.toString());
                         }

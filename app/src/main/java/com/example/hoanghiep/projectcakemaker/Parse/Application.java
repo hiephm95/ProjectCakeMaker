@@ -1,6 +1,7 @@
 package com.example.hoanghiep.projectcakemaker.Parse;
 
 import com.example.hoanghiep.projectcakemaker.model.Event;
+import com.example.hoanghiep.projectcakemaker.model.Feedback;
 import com.example.hoanghiep.projectcakemaker.model.Order;
 import com.example.hoanghiep.projectcakemaker.model.Picture;
 import com.example.hoanghiep.projectcakemaker.model.Product;
@@ -17,6 +18,7 @@ public class Application extends android.app.Application {
         ParseObject.registerSubclass(Event.class);
         ParseObject.registerSubclass(Picture.class);
         ParseObject.registerSubclass(Order.class);
+        ParseObject.registerSubclass(Feedback.class);
         Parse.initialize(this, "l5OJy4F4rw3COKG6Jgc0VKNi7rFQzarUVLcjw4jA", "HCRpx0LQxTlvaBXDQ6BxeFsLnJqkGscA9xf1aq8Q");
     }
 }

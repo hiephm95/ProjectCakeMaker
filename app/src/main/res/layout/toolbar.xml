@@ -56,7 +56,7 @@
                 android:layout_marginRight="16dp"
                 android:src="@mipmap/ic_cart" />
             <TextView
-                android:id="@+id/tvItemCart"
+                android:id="@+id/tvItemCartMain"
                 android:layout_width="14dp"
                 android:layout_height="12dp"
                 android:background="@drawable/item_cart"

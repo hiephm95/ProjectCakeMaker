@@ -13,11 +13,13 @@ import android.widget.EditText;
 
 import com.example.hoanghiep.projectcakemaker.R;
 import com.example.hoanghiep.projectcakemaker.interfaces.ScreenChangeListener;
+import com.example.hoanghiep.projectcakemaker.job.SubmitFeedbackAsync;
+import com.example.hoanghiep.projectcakemaker.model.Feedback;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ContactFragment extends Fragment implements View.OnClickListener{
+public class ContactFragment extends Fragment implements View.OnClickListener {
 
 
     public ContactFragment() {
@@ -27,7 +29,7 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
     View root;
 
     ScreenChangeListener screenChangeListener;
-    EditText etContactName,etContactEmail,etContactPhone,etSubjectEmail,etContactMessage;
+    EditText etContactName, etContactEmail, etContactPhone, etSubjectEmail, etContactMessage;
     String contactName, contactEmail, contactPhone, subjectEmail, contactMessage;
     Button btnSend;
 
@@ -55,7 +57,18 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()) {
+            case R.id.btnSend:
+                Feedback f = new Feedback();
+                f.setName(etContactName.getText().toString());
+                f.setEmail(etContactEmail.getText().toString());
+                f.setPhone(etContactPhone.getText().toString());
+                f.setSubject(etSubjectEmail.getText().toString());
+                f.setMessage(etContactMessage.getText().toString());
+                SubmitFeedbackAsync submitFeedbackAsync = new SubmitFeedbackAsync(f);
+                submitFeedbackAsync.execute();
+                break;
+        }
     }
 
     @Override

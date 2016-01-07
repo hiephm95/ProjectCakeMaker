@@ -2,15 +2,11 @@ package com.example.hoanghiep.projectcakemaker.activity;
 
 import android.annotation.TargetApi;
 import android.app.FragmentTransaction;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.transition.TransitionInflater;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -25,7 +21,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     ImageView actionLeft3;
     ImageView ivProductDetails;
     ImageView ivCart;
-    TextView tvItemCart;
+    public static TextView tvItemCart;
     TransitionInflater transitionInflater;
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
@@ -55,23 +51,12 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
 
     private void initView() {
 
-        SharedPreferences sharedPreferences = getSharedPreferences("Card", Context.MODE_PRIVATE);
-        boolean visible = sharedPreferences.getBoolean("visible", false);
-//        int size = sharedPreferences.getInt("size", 0);
 
         actionLeft3 = (ImageView) findViewById(R.id.actionLeft3);
         ivProductDetails = (ImageView) findViewById(R.id.ivProductDetails);
         ivCart = (ImageView) findViewById(R.id.ivCart);
         tvItemCart = (TextView) findViewById(R.id.tvItemCart);
         tvItemCart.setText(String.valueOf(Cart.list.size()));
-
-
-        Log.i("CHECK", String.valueOf(visible));
-
-        if (!visible){
-            tvItemCart.setVisibility(View.INVISIBLE);
-        }
-
 
         ivCart.setOnClickListener(this);
 
