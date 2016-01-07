@@ -90,6 +90,7 @@
                         <TextView
                             android:id="@+id/tvItemCart"
                             android:layout_width="14dp"
+                            android:visibility="invisible"
                             android:layout_height="12dp"
                             android:background="@drawable/item_cart"
                             android:gravity="center"

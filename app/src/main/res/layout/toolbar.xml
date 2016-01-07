@@ -57,6 +57,7 @@
                 android:src="@mipmap/ic_cart" />
             <TextView
                 android:id="@+id/tvItemCartMain"
+                android:visibility="invisible"
                 android:layout_width="14dp"
                 android:layout_height="12dp"
                 android:background="@drawable/item_cart"

@@ -43,7 +43,6 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     private void initProject() {
         DetailFragment detailFragment = new DetailFragment();
         detailFragment.setArguments(getIntent().getExtras());
-        detailFragment.tvCartItem = tvItemCart;
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.flDetail, detailFragment);
         transaction.commit();
@@ -69,5 +68,15 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View v) {
         Intent i = new Intent(getBaseContext(), CartActivity.class);
         startActivity(i);
+    }
+
+    @Override
+    protected void onResume() {
+        tvItemCart.setText(String.valueOf(Cart.list.size()));
+        if(Cart.list.size() > 0)
+        {
+            tvItemCart.setVisibility(View.VISIBLE);
+        }
+        super.onResume();
     }
 }

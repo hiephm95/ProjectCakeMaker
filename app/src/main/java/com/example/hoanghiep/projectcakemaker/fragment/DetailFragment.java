@@ -21,20 +21,16 @@ import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 
-import java.util.List;
-
 /**
  * A simple {@link Fragment} subclass.
  */
 public class DetailFragment extends Fragment implements View.OnClickListener{
-    public TextView tvCartItem;
     TextView tvDetailName;
     TextView tvDetailPrice;
     TextView tvDetailDescription;
     Button btnCart;
     Spinner spinQuantity;
     RadioButton rbEggLess, rbEggWith;
-    List<Product> products;
 
     public DetailFragment() {
         // Required empty public constructor
@@ -125,8 +121,6 @@ public class DetailFragment extends Fragment implements View.OnClickListener{
                             }
                             object.quantity = spinQuantity.getSelectedItemPosition();
                             Cart.addProduct(object);
-                            tvCartItem.setText(String.valueOf(Cart.list.size()));
-                            tvCartItem.setVisibility(View.VISIBLE);
                         } else {
                             Log.d("Error:", e.toString());
                         }

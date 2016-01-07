@@ -3,9 +3,7 @@ package com.example.hoanghiep.projectcakemaker.activity;
 import android.annotation.TargetApi;
 import android.app.ActivityOptions;
 import android.app.FragmentTransaction;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -212,13 +210,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
+    protected void onResume() {
+        tvItemCartMain.setText(String.valueOf(Cart.list.size()));
+        super.onResume();
+    }
+
+    @Override
     protected void onDestroy() {
-        SharedPreferences sharedPreferences = getSharedPreferences("Card", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        //editor.putInt("size", 0);
-        editor.putBoolean("visible", false);
-        Log.i("TEST", "Stop");
-        editor.commit();
+        Log.i("TEST", "Destroy");
+        Cart.list.clear();
         super.onDestroy();
     }
 }
