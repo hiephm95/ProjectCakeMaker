@@ -4,7 +4,13 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.hoanghiep.projectcakemaker.R;
 import com.example.hoanghiep.projectcakemaker.model.Cart;
 import com.example.hoanghiep.projectcakemaker.model.Order;
 import com.example.hoanghiep.projectcakemaker.model.Product;
@@ -23,13 +29,14 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-public class SubmitOrderAsync extends AsyncTask<Void, Void, String> {
+public class SubmitOrderAsync extends AsyncTask<Void, Void, Integer> {
     ProgressDialog progressDialog;
     public Order order;
     JSONArray productJsonArray = new JSONArray();
     String subject;
     String content;
     Context context;
+    TextView tvToast;
     List<Product> products;
 
     public SubmitOrderAsync(Context context, List<Product> products) {
@@ -43,12 +50,13 @@ public class SubmitOrderAsync extends AsyncTask<Void, Void, String> {
         progressDialog.setMessage("Submitting Order...!");
         progressDialog.setIndeterminate(false);
         progressDialog.setCancelable(false);
+
         progressDialog.show();
     }
 
 
     @Override
-    protected String doInBackground(Void... params) {
+    protected Integer doInBackground(Void... params) {
 
         String productOfOrder = "";
 
@@ -63,9 +71,15 @@ public class SubmitOrderAsync extends AsyncTask<Void, Void, String> {
 
                 for (Product product : products) {
                     if (p.getObjectId() == product.getObjectId()) {
-                        productOfOrder = productOfOrder + "\n" + product.getName() + " " + (product.quantity + 1) + " Eggless:" + product.eggLess;
+                        if (product.eggLess) {
+                            productOfOrder = productOfOrder + "\n" + product.getName() + " " + (product.quantity + 1) + " with Eggless";
+                        } else {
+                            productOfOrder = productOfOrder + "\n" + product.getName() + " " + (product.quantity + 1) + " with Eggwith";
+                        }
+
                     }
                 }
+
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -80,22 +94,45 @@ public class SubmitOrderAsync extends AsyncTask<Void, Void, String> {
 
         try {
             send(order.getEmail(), subject, content);
+            return 2;
         } catch (MessagingException e) {
-            e.printStackTrace();
+            return 3;
         }
-        return "Your Order Are Submited.Please wait our reply, thank you ^^";
+
+
     }
 
     @Override
-    protected void onPostExecute(String s) {
+    protected void onPostExecute(Integer s) {
         Cart.list.clear();
+        if (s == 2) {
+            showToast(context);
+            tvToast.setText("Your Order Are Submited.Please wait our reply, thank you");
+        } else if (s == 3) {
+            showToast(context);
+            tvToast.setText("NetWork have problem, Try Again!");
+        }
+
         if (progressDialog.isShowing() == true) {
             progressDialog.dismiss();
         }
-        Log.d("Completed", s);
+
     }
 
+    public void showToast(Context context) {
+        getView(context);
+    }
 
+    public View getView(Context context) {
+        View v = LayoutInflater.from(context).inflate(R.layout.custom_toast, null);
+        tvToast = (TextView) v.findViewById(R.id.tvToast);
+        Toast toast = new Toast(context.getApplicationContext());
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+        toast.setView(v);
+        toast.show();
+        return v;
+    }
 
     public static void send(String to, String subject, String content) throws MessagingException {
         String username = "cakemakerfpt@gmail.com";

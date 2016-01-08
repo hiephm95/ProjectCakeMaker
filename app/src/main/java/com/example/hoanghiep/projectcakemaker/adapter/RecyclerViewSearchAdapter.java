@@ -37,7 +37,7 @@ public class RecyclerViewSearchAdapter extends RecyclerView.Adapter<RecyclerView
     @Override
     public void onBindViewHolder(RecyclerViewSearchAdapter.MySearchViewHolder holder, int position) {
         holder.tvNameSearch.setText(list.get(position).getName());
-        holder.tvPriceSearch.setText(String.valueOf(list.get(position).getPrice()));
+        holder.tvPriceSearch.setText(String.valueOf(list.get(position).getPrice()) + " $");
         ImageLoader.getInstance().displayImage(list.get(position).getPicturesList().get(0).getFile().getUrl(), holder.ivSearchPicture);
     }
 

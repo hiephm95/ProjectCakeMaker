@@ -192,8 +192,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.ivSearch:
                 Intent intentSearch = new Intent(getBaseContext(), SearchActivity.class);
-                Bundle slideanim = ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.slide_up, R.anim.slide_down).toBundle();
-                startActivity(intentSearch, slideanim);
+                //Bundle slideanim = ActivityOptions.makeCustomAnimation(getApplicationContext(), R.anim.slide_up, R.anim.slide_down).toBundle();
+                startActivity(intentSearch);
                 break;
             case R.id.actionLeft:
                 dlLayout.openDrawer(rlLeftDrawer);
@@ -217,7 +217,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onDestroy() {
-        Log.i("TEST", "Destroy");
         Cart.list.clear();
         super.onDestroy();
     }
