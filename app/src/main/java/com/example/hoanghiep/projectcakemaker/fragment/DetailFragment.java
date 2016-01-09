@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.hoanghiep.projectcakemaker.R;
 import com.example.hoanghiep.projectcakemaker.model.Cart;
@@ -31,6 +32,7 @@ public class DetailFragment extends Fragment implements View.OnClickListener{
     Button btnCart;
     Spinner spinQuantity;
     RadioButton rbEggLess, rbEggWith;
+    Cart cart = new Cart();
 
     public DetailFragment() {
         // Required empty public constructor
@@ -109,9 +111,6 @@ public class DetailFragment extends Fragment implements View.OnClickListener{
                     public void done(Product object, ParseException e) {
                         if (e == null) {
 
-                            //SharedPreferences sharedPreferences1 = getActivity().getSharedPreferences("Card", Context.MODE_PRIVATE);
-                            //int size = sharedPreferences1.getInt("size", 0);
-
                             if(rbEggLess.isChecked())
                             {
                                 object.eggLess = true;
@@ -120,7 +119,8 @@ public class DetailFragment extends Fragment implements View.OnClickListener{
                                 object.eggLess = false;
                             }
                             object.quantity = spinQuantity.getSelectedItemPosition();
-                            Cart.addProduct(object);
+                            cart.addProduct(object, getActivity());
+
                         } else {
                             Log.d("Error:", e.toString());
                         }

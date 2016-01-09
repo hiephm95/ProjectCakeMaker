@@ -1,6 +1,7 @@
 package com.example.hoanghiep.projectcakemaker.adapter;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.hoanghiep.projectcakemaker.R;
+import com.example.hoanghiep.projectcakemaker.activity.CakeActivityItem;
 import com.example.hoanghiep.projectcakemaker.activity.CartActivity;
+import com.example.hoanghiep.projectcakemaker.activity.DetailActivity;
+import com.example.hoanghiep.projectcakemaker.activity.MainActivity;
 import com.example.hoanghiep.projectcakemaker.model.Cart;
 import com.example.hoanghiep.projectcakemaker.model.Product;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -122,8 +126,16 @@ public class RecyclerViewCartAdapter extends RecyclerView.Adapter<RecyclerViewCa
     }
 
     public void removeItem(int position) {
-        myCart.remove(position);
-        notifyItemRemoved(position);
-        notifyItemRangeChanged(position,myCart.size());
+        try {
+            myCart.remove(position);
+            notifyItemRemoved(position);
+            notifyItemRangeChanged(position, myCart.size());
+            MainActivity.tvItemCartMain.setVisibility(View.INVISIBLE);
+            DetailActivity.tvItemCart.setVisibility(View.INVISIBLE);
+//            CakeActivityItem.tvItemCart2.setVisibility(View.INVISIBLE);
+        } catch (IndexOutOfBoundsException e) {
+            Log.i("Error: ", "IndexOutOfBounds");
+        }
+
     }
 }

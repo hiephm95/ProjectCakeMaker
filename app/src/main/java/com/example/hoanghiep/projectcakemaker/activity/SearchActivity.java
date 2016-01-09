@@ -31,9 +31,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     EditText etSearchInput;
     RecyclerView recyclerView;
 
-
     RecyclerView.Adapter adapter;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +57,12 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
                 ProductByNameAsync productByNameAsync = new ProductByNameAsync(SearchActivity.this);
                 productByNameAsync.recyclerView = recyclerView;
                 productByNameAsync.adapter = adapter;
-                productByNameAsync.execute(etSearchInput.getText().toString());
+                if (etSearchInput.getText().toString().equals("")) {
+                    productByNameAsync.execute("aaaaaaaa");
+                } else {
+                    productByNameAsync.execute(etSearchInput.getText().toString());
+                }
+
             }
 
             @Override
@@ -87,6 +90,6 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
         finish();
-        overridePendingTransition(R.anim.slide_up, R.anim.slide_down);
+        //overridePendingTransition(R.anim.slide_up, R.anim.slide_down);
     }
 }
