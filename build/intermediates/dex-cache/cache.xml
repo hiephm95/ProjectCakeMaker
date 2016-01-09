@@ -1,2 +1,215 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\exploded-aar\com.github.rey5137\material\1.2.2\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="dde1ea8573633db3da4e8c42d541bfa7d03d6720">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\com.github.rey5137-material-1.2.2_7836ba0ed8226f61f144d0beb232c799effcdd19.jar" />
+    </item>
+    <item
+        jar="C:\Users\Bui\.gradle\caches\modules-2\files-2.1\cn.trinea.android.view.autoscrollviewpager\android-auto-scroll-view-pager\1.1.2\8ad9237a8b0965696ea32ca9c1de173e082eaad4\android-auto-scroll-view-pager-1.1.2.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8ad9237a8b0965696ea32ca9c1de173e082eaad4">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\android-auto-scroll-view-pager-1.1.2_9c3e8ad4991b18972edf9b6686eea70fdf37358e.jar" />
+    </item>
+    <item
+        jar="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\internal_impl-23.1.1_ca57bde8073b54e1a0fc2a74c5a10b8d0915112d.jar" />
+    </item>
+    <item
+        jar="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\exploded-aar\com.android.support\support-v13\23.1.1\jars\libs\internal_impl-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="f4d7a07120e76988f3a15403838d323c2400db83">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\internal_impl-23.1.1_5165a51c4ad35bb84ec6e1d86d65285a321b2ed7.jar" />
+    </item>
+    <item
+        jar="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\libs\mail.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="428e267abff0d10802ccde86b915da2c20471160">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\mail_a9667d18ea65081e0e4395d2f893c6edfbe84aa7.jar" />
+    </item>
+    <item
+        jar="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\exploded-aar\com.github.clans\fab\1.6.2\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="7e6a161b3796c15fe00755ce47e03067e568ecc4">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\com.github.clans-fab-1.6.2_38da2def21aecb682571387018c6a6eadbcb8678.jar" />
+    </item>
+    <item
+        jar="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\libs\activation.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d1257cbff6faa44c1f325ae0d9413522d4644383">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\activation_5491300eae1593598fe13ae2d8f8a7a4178c0a5f.jar" />
+    </item>
+    <item
+        jar="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\exploded-aar\com.ogaclejapan.smarttablayout\library\1.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e18e1d8877d94d60407b185e88a4d0d18bc4f507">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\com.ogaclejapan.smarttablayout-library-1.5.0_afc62810b52c641e25698574edf99a3f47cad10b.jar" />
+    </item>
+    <item
+        jar="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.1.1_2c1721b5118066588bbe3a8582057f56e6549446.jar" />
+    </item>
+    <item
+        jar="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\libs\additionnal.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="bd9e8dc422bb8c8405359947fe9f4282b49f57f4">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\additionnal_7ec827a9cd8cf42e6fd06cb8f6b83085fee4ca16.jar" />
+    </item>
+    <item
+        jar="C:\Users\Bui\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-applinks\1.3.0\bc535105332645408ef5f1380215cc954b842178\bolts-applinks-1.3.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="bc535105332645408ef5f1380215cc954b842178">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\bolts-applinks-1.3.0_bedbb4959efc4a23e16aebd494c7e21b55e8f8d3.jar" />
+    </item>
+    <item
+        jar="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\exploded-aar\com.ToxicBakery.viewpager.transforms\view-pager-transforms\1.2.32\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="392c97a8270ccf3cc7fe6e0a5d97a5e97a61e65c">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\com.ToxicBakery.viewpager.transforms-view-pager-transforms-1.2.32_18902aa7862aaaae283005eb19fea29a76e1b040.jar" />
+    </item>
+    <item
+        jar="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\exploded-aar\com.android.support\design\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\com.android.support-design-23.1.1_9519e4eeccae6d10243bcca1677bb42ba3bffd36.jar" />
+    </item>
+    <item
+        jar="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\exploded-aar\com.android.support\multidex\1.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6666dd525c3da197e7d07f4f23ef5fc7881a697b">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\com.android.support-multidex-1.0.0_fc3ca13f20ff85e00843cfdc551e90621b4eb451.jar" />
+    </item>
+    <item
+        jar="C:\Users\Bui\.gradle\caches\modules-2\files-2.1\com.nineoldandroids\library\2.4.0\e9b63380f3a242dbdbf103a2355ad7e43bad17cb\library-2.4.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\library-2.4.0_f82f0967b9320276f2d35bd4325b8d29b56a36de.jar" />
+    </item>
+    <item
+        jar="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-23.1.1_e1f0bf60dc6805f680cea739c04166dfc7815c75.jar" />
+    </item>
+    <item
+        jar="C:\Users\Bui\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.3.0\8a62fd16fcc1c06f284fc98e6cbded2a5af1dd4c\bolts-tasks-1.3.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8a62fd16fcc1c06f284fc98e6cbded2a5af1dd4c">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\bolts-tasks-1.3.0_af1e051e9d3411348fa5b4c98d1c8f51c4724a47.jar" />
+    </item>
+    <item
+        jar="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\exploded-aar\it.neokree\MaterialTabs\0.11\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="fef6aa7ea0bb2d6adf10965d0a5bb8e353517bff">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\it.neokree-MaterialTabs-0.11_d8be607372e606cb6b5588934459021378db16f4.jar" />
+    </item>
+    <item
+        jar="E:\SDK\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\support-annotations-23.1.1_2d8b48096e1da4c96bb56725af3580061fb9bde9.jar" />
+    </item>
+    <item
+        jar="C:\Users\Bui\.gradle\caches\modules-2\files-2.1\com.parse\parse-android\1.12.0\34ca297c889cd2023074946c7097d96b30b20891\parse-android-1.12.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="34ca297c889cd2023074946c7097d96b30b20891">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\parse-android-1.12.0_aa14d7c00026f26b063ab8a5c57cca255b26a692.jar" />
+    </item>
+    <item
+        jar="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\exploded-aar\com.ogaclejapan.smarttablayout\utils-v4\1.5.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="834a1e7e723b9a6802d0c2ea28578f4dc4d2e833">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\com.ogaclejapan.smarttablayout-utils-v4-1.5.0_5f6b6b649e06c1cff198f463bb0c64dee5e69416.jar" />
+    </item>
+    <item
+        jar="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.1.1_f3fa48b7dfe0de97b871ae7f456bd641aa70e05b.jar" />
+    </item>
+    <item
+        jar="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\exploded-aar\com.github.markushi\android-ui\1.2\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="96436aef5f48b09aca1e0183dfcd7782aa580bd6">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\com.github.markushi-android-ui-1.2_387219c382c6ab5693dbd30f2c829c4946d7e833.jar" />
+    </item>
+    <item
+        jar="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\exploded-aar\com.android.support\support-v13\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5ddf5f4817565c9db82613c16093f76640a54e15">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\com.android.support-support-v13-23.1.1_be90136dfc5101fe88aa4e86928fca4ef23fc04d.jar" />
+    </item>
+    <item
+        jar="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\exploded-aar\jp.wasabeef\recyclerview-animators\2.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="0b148ce9bfaa624702b7bd0a099bfdf44b46c936">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\jp.wasabeef-recyclerview-animators-2.1.0_b9fe8cb57f22d84645c5e1ad86f235809492227a.jar" />
+    </item>
+    <item
+        jar="C:\Users\Bui\.gradle\caches\modules-2\files-2.1\com.nostra13.universalimageloader\universal-image-loader\1.9.5\442dbfb517b9ab5cb5c6da7ebf8cc28ec5bd0375\universal-image-loader-1.9.5.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="442dbfb517b9ab5cb5c6da7ebf8cc28ec5bd0375">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\universal-image-loader-1.9.5_51478d2a23f917878e13a86a3f168cdf59f358df.jar" />
+    </item>
+    <item
+        jar="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\exploded-aar\com.github.ganfra\material-spinner\1.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d0df3bf618b078d102a4234ceff33c44026e64b9">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\com.github.ganfra-material-spinner-1.1.1_17a1e7a62f03046510cb4f61ba121c07d64433a6.jar" />
+    </item>
+    <item
+        jar="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\exploded-aar\com.github.traex.rippleeffect\library\1.3\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ee17feb34ce104bc17d1a1e64346d7f779ebb066">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\com.github.traex.rippleeffect-library-1.3_b7eb9604324de8064cad3537d19e3fc26220690f.jar" />
+    </item>
+    <item
+        jar="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5e412e954a24c5310a459c09870e4e2081aceb03">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-23.1.1_bbc1ff69d0502050b9fe29ff53de4cf3bf7f4d03.jar" />
+    </item>
+    <item
+        jar="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\exploded-aar\com.github.nirhart\parallaxscroll\1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="2574796fab3c6145ca6170821badd305f5e03669">
+        <dex dex="F:\JavaEE\Project Sem 4\ProjectCakeMaker\app\build\intermediates\pre-dexed\debug\com.github.nirhart-parallaxscroll-1.0_ab67aa03b37e89e9576f46aef6b0807d1b4839e6.jar" />
+    </item>
+
+</items>
